@@ -11,11 +11,11 @@ const Tab = createBottomTabNavigator();
 function Routes() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Convidados" component={Convidados} />
-      <Tab.Screen name="Shop" component={Loja} />
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Mapa" component={Mapa} />
-      <Tab.Screen name="Lista" component={Lista} />
+      <Tab.Screen name="Convidados" component={Convidados} options={{headerShown:false}}/>
+      <Tab.Screen name="Shop" component={Loja} options={{headerShown:false}}/>
+      <Tab.Screen name="Home" component={Home} options={{headerShown:false}}/>
+      <Tab.Screen name="Mapa" component={Mapa} options={{headerShown:false}}/>
+      <Tab.Screen name="Lista" component={Lista}  options={{headerShown:false}} />
     </Tab.Navigator>
   );
 }
