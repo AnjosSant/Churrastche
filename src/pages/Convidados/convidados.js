@@ -1,23 +1,30 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native'; 
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native'; 
+import InputConvidados from '../../components/InputConvidados/inputconv';
 
-export default function Home(){
+export default function Convidados(){
     return(
 
-    <View style = {styles.container}>
-        <Text style={styles.text}>Pagina convidados</Text>
-    </View>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.content}>
+            <InputConvidados min={0} max={50} />
+
+            </View>
+        </SafeAreaView>
+
+      
     );
 }
 const styles = StyleSheet.create({
-    container:
-    {
+    container: {
+
         flex:1,
-        justifyContent: "center",
-        alignItems:'center',
+        backgroundColor: '#fff',
     },
-    text:{
-        fontSize: 25,
-        fontWeight: 'bold'
-    }
+    content: {
+        
+        flex: 1, 
+        margintop:100,
+    },
+
 })
