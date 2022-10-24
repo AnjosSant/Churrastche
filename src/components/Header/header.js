@@ -1,4 +1,3 @@
-import React from 'react';
 import { View, Text , StyleSheet, StatusBar, Image } from 'react-native';
 import Logoapp from '../../img/LOGO2.png'
 
@@ -24,6 +23,8 @@ const styles = StyleSheet.create({
     paddingStart: 20,
     paddingEnd: 20,
     paddingBottom: 15,
+    height: 90,
+    width: 400
   },
   content:{
     flex: 1,
@@ -34,10 +35,13 @@ const styles = StyleSheet.create({
   imagem_logo:{
     width: 100,
     height: 100,
+    marginBottom: 45,
   },
   nome_pagina:{
     color: '#fff',
-    fontWeight: 700,
-    fontSize: 32,
+    fontWeight: 400,
+    fontSize: 20,
+    marginBottom: 35,
+    marginRight: 10
   },
 })
