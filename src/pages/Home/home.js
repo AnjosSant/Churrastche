@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   cardRed: {
     backgroundColor: "#EA1D2C",
     height: 600,
-    width: 400,
+    width: "100%",
     marginTop: 40,
   },
   textChamamento: {
