@@ -1,92 +1,106 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native'; 
+import React from "react";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Header from "../../components/Header/header";
+import { MaterialIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 
-export default function Home(){
-    return(
-
-    <View style = {styles.container}>
-        <View style = {styles.header}>
-        <Text style={styles.textHeader}>Despesas</Text>
+export default function Home() {
+  return (
+    <View>
+      <SafeAreaView>
+        <Header name="Calculadora de churrasco" />
+      </SafeAreaView>
+      <View style={styles.header}>
+        <AntDesign name="shoppingcart" size={24} color="black" />
+        lista
+        <MaterialIcons name="list-alt" size={24} color="black" />
+        Resumo
+      </View>
+      <View
+        style={{
+          borderBottomColor: "black",
+          borderBottomWidth: StyleSheet.hairlineWidth,
+          borderWidth: 1,
+          marginTop: 15,
+        }}
+      />
+      <View style={styles.cardHeader}>
+        <Text style={styles.CardTextHeader}>
+            Recomendação de compras
+        </Text>
         </View>
-        <View style={styles.body}>
-        <Text style={styles.textBody}>Despesas com Carnes                       R$: 00,00</Text>   
-        <Text style={styles.textBody}>Despesas com Bebidas                     R$: 00,00</Text>   
-        <Text style={styles.textBody}>Despesas com Outros                       R$: 00,00</Text>   
+      <ScrollView style={styles.CardBody}>
+        
+        </ScrollView>  
+        <View style={styles.CardFooter}>
+            <Text style={styles.CardTextFooter}>
+                Total: R$ 00.00
+            </Text>
         </View>
-        <View style={styles.footer}>
-        <Text style={styles.textFooter}>Total: R$:00,00</Text>           
-        </View>
-        <View style={styles.rateio}>
-        <Text style={styles.textRateio}>Custo por pagante:                       R$: 00,00</Text>  
-        </View>
+      
     </View>
-    
-   
-
-    );
+  );
 }
 const styles = StyleSheet.create({
-    container:
-    {
-        flex:1,
-        justifyContent: "center",
-        alignItems:'center',
-    },
-    header:
-    {
-        width:'80%',
-        height: '7%',
-        justifyContent:"center",
-        backgroundColor: '#D03838',
-        borderWidth:1.3,
-        padding: 5,
-        
-    },
-    textHeader:
-    {
-        color: '#ffffff',
-        fontWeight: 500,
-    },
-    body:
-    {
-        width:'80%',
-        height:'25%',
-        borderWidth:1.3,
-        padding: 8,
-        backgroundColor: "#ffffff",
-    },
-    textBody:
-    {
-        color: '#000000',
-        fontWeight: 400,
-        justifyContent: 'center',
-    },
-    footer:
-    {
-        width:'80%',
-        height:'7%',
-        borderWidth:1.3,
-        padding: 8,
-        backgroundColor: "#D03838",
-    },
-    textFooter:
-    {
-        color:'#ffffff',
-        fontWeight: 500,
-        justifyContent: 'center',
-    },
-    rateio:{
-        width:'80%',
-        height:'7%',
-        marginTop:30,
-        backgroundColor: "#D03838",  
-        borderWidth:1.3,
-        padding: 8      
-    },
-    textRateio:
-    {
-        color: '#ffffff',
-        fontWeight: 500,
-        justifyContent: 'center',
-    },
-})
+  main: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  header: {
+    width: "100%",
+    height: 20,
+    flexDirection: "row",
+    justifyContent: "center",
+
+    marginTop: 15,
+    borderBottomWidth: "100%",
+    borderBottomColor: "#000000",   
+  },
+  cardHeader: {
+    width: "80%",
+    height: 60,
+    backgroundColor: "#D03838",
+    borderWidth: 1.3,
+    padding: 8,
+    marginTop: 15,
+    marginLeft: "auto",
+    marginRight: "auto",
+    justifyContent: "center",
+  },
+  CardTextHeader: {
+    color: "#ffffff",   
+    fontWeight: 500,
+   
+  },
+  CardBody: {
+    width: "80%",
+    height: 300,
+    borderWidth: 1.3,
+    padding: 8,
+    backgroundColor: "#ffffff",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+  CardTextBody: {
+    color: "#000000",
+    fontWeight: 400,
+    justifyContent: "center",
+  },
+  CardFooter: {
+    width: "80%",
+    height: 55,
+    borderWidth: 1.3,
+    padding: 8,
+    backgroundColor: "#D03838",
+    marginLeft: "auto",
+    marginRight: "auto",
+    justifyContent: "center",   
+  },
+  CardTextFooter: {
+    color: "#ffffff",
+    fontWeight: 500,
+    justifyContent: "center",
+  },
+
+});
