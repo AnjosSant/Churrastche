@@ -30,18 +30,12 @@
     "react-native-switch-toggle": "^2.2.1",
     "react-native-vector-icons": "^9.2.0",
     "react-native-web": "~0.18.7",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "styled-components": "^5.3.6",
-    "toggle-switch-react-native": "^3.3.0"
-=======
-=======
->>>>>>> 757b61be91f30d4a8be5ed8c66cb9b766d810740
+    "toggle-switch-react-native": "^3.3.0",
     "react-native-web-webview": "^1.0.2",
     "react-native-youtube": "^2.0.2",
-    "react-native-youtube-iframe": "^2.2.2",
-    "styled-components": "^5.3.6"
->>>>>>> 757b61be91f30d4a8be5ed8c66cb9b766d810740
+    "react-native-youtube-iframe": "^2.2.2"
+
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
