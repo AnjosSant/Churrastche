@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text, Dimensions } from 'react-native';
-import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import { PanGestureHandler } from 'react-native-gesture-handler';
+import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 const WIDTH = Dimensions.get('window').width - 80;
 const KONBSIZE = 20;
 const MAXWIDTH = WIDTH - KONBSIZE / 2 + 6;
@@ -9,6 +10,19 @@ const MAXWIDTH = WIDTH - KONBSIZE / 2 + 6;
 
 const InputConvidados = ({min, max}) => {
   const x = useSharedValue(0);
+  const sc = useSharedValue(1);
+
+  const gestureHandler = useAnimatedGestureHandler({
+    onStart: (_, ctx) => {
+      ctx.startX = x.value;
+    },
+    onActive: () =>{
+
+    },
+    onEnd: () => {
+
+    },
+  })
 
   const styleLine = useAnimatedStyle (() => {
     return{
@@ -19,6 +33,19 @@ const InputConvidados = ({min, max}) => {
       width: x.value,
     }
   })
+  const knobStyle = useAnimatedStyle (() => {
+    return{
+      transform: [
+        {
+          translateX: x.value,
+        },
+        {
+          scale: sc.value,
+        },
+        { rotate: '45deg' },
+      ],
+    }
+  })
   return (
   <View style={styles.container}>
     <View style={styles.labelsContainer}>
@@ -27,8 +54,9 @@ const InputConvidados = ({min, max}) => {
     </View>
     <View style={styles.track}/>
     <Animated.View style={styleLine} />
-    
-
+    <PanGestureHandler onGestureEvent={gestureHandler}>
+    <Animated.View style={[styles.knob,knobStyle]} />
+    </PanGestureHandler>
     </View>   
   );
 };
@@ -50,6 +78,16 @@ labelsContainer: {
 },
 label: {
     color: '#777'
-}
+},
+knob: {
+  height: KONBSIZE,
+  width: KONBSIZE,
+  borderTopRightRadius: KONBSIZE / 2,
+  borderBottomRightRadius: KONBSIZE / 2,
+  borderBottomLeftRadius: KONBSIZE / 2,
+  backgroundColor: '#EA1D2C',
+  marginTop: -(KONBSIZE / 2 - 12),
+  marginLeft: -8,
+},
 })
 export default InputConvidados;
