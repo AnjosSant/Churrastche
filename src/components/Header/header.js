@@ -1,10 +1,20 @@
 import { View, Text , StyleSheet, StatusBar, Image } from 'react-native';
 import Logoapp from '../../img/LOGO2.png'
+import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
 
 
 const StatusBarHeight = StatusBar.currentHeight ?  StatusBar.currentHeight + 22  : 64
 
 export default function Header({name}) {
+
+  let [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
  return (
    <View style={styles.container}>
       <View style={styles.content} >
@@ -42,6 +52,7 @@ const styles = StyleSheet.create({
     fontWeight: 400,
     fontSize: 20,
     marginBottom: 35,
-    marginRight: 10
+    marginRight: 10,
+    fontFamily: "Poppins_400Regular",
   },
 })
