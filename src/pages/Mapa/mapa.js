@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import Header from '../../components/Header/header';
 
@@ -16,20 +17,26 @@ export default function Mapa(){
 
     return(
     <View style={styles.content}>
-        <Header name="MAPA"/>
+        <Header name="Mapa"/>
         <Text style={styles.nome_endereco}>Endereço do Evento</Text>   
         <View style = {styles.container}>
-        <TextInput style={styles.input} placeholder="useless placeholder" keyboardType="numeric" />
-            <Text style={styles.text}>Pagina mapa</Text>
+            <TextInput style={styles.input} placeholder="Digite seu CEP" keyboardType="numeric" />
+        </View>
+        <View style={styles.icon_position}>
+            <Icon name="search" size={30} style={styles.icon}/>
+        </View>
+        <View style={styles.text_content}>
+            <Text style={styles.text}>Lojas da swift mais próximas do seu evento:</Text>
         </View>
     </View>
+
     );
 }
 const styles = StyleSheet.create({
     nome_endereco:
     {
         fontSize: 18,
-        fontWeight: 'bold',
+        fontWeight: 'regular',
         paddingTop: 25  ,
         marginLeft: 20
     },
@@ -42,15 +49,20 @@ const styles = StyleSheet.create({
     text:{
         fontFamily: "Poppins_400Regular",
         fontSize: 25,
-        fontWeight: 'bold',
+        fontWeight: 'regular',
+    },
+    text_content:{
+        display: "flex",
+        textAlign: "center",
+
     },
     input:{
         fontFamily: "Poppins_400Regular",
         width: "90%",
-        paddingLeft: 15,
+        paddingLeft: 50,
         marginLeft: 10,
         marginRight: 10,
-        height: 40,
+        height: 50,
         borderRadius: 5,
         backgroundColor: "#fff",
         shadowOffset: {
@@ -59,5 +71,14 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation:5,
-    }
+        marginTop: 15  ,
+    },
+    icon:{
+        zIndex:999999,   
+    },
+    icon_position:{
+        marginLeft: 30,
+        position: "relative",
+        bottom: 42
+    },
 })
