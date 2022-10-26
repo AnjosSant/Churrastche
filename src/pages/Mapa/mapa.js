@@ -20,7 +20,7 @@ export default function Mapa(){
         <Text style={styles.nome_endereco}>Endereço do Evento</Text>   
         <View style = {styles.container}>
         <TextInput style={styles.input} placeholder="useless placeholder" keyboardType="numeric" />
-            {/* <Text style={styles.text}>Pagina mapa</Text> */}
+            <Text style={styles.text}>Pagina mapa</Text>
         </View>
     </View>
     );
