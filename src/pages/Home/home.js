@@ -1,16 +1,16 @@
 import React, { useState, useCallback } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
+import {View,Text,StyleSheet,ScrollView,TouchableOpacity,} from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
+
 import Header from "../../components/Header/header";
 import YoutubePlayer from "react-native-youtube-iframe";
 
 export default function Home({}) {
+  let [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+  }); 
+
   const navigation = useNavigation();
  const [playing, setPlaying] = useState(false);
 
@@ -84,6 +84,8 @@ const styles = StyleSheet.create({
     fontSize: 55,
     fontWeight: "bold",
     marginTop: 40,
+    fontFamily: "Poppins_400Regular",
+
   },
   cardRed: {
     backgroundColor: "#EA1D2C",
@@ -98,6 +100,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     textAlign: "center",
     marginTop: 35,
+
   },
   textPreencher: {
     color: "#fff",
@@ -108,6 +111,7 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginRight: 30,
     marginTop: -40,
+
   },
   buttonNext: {
     marginLeft: "auto",
@@ -128,17 +132,20 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 0.25,
     color: "black",
+
   },
   receitas: {
     height: 600,
     width: "100%",
     marginTop: 40,
+
   },
   textWhite: {
     textAlign: "center",
     fontSize: 55,
     fontWeight: "bold",
     marginTop: 10,
+
   },
   yt: {
     justifyContent: "center",

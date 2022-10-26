@@ -11,9 +11,6 @@ export default function Header({name}) {
     Poppins_400Regular,
   });
 
-  if (!fontsLoaded) {
-    return null;
-  }
 
  return (
    <View style={styles.container}>
