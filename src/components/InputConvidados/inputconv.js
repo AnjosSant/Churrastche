@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Text, Dimensions } from 'react-native';
+import { View, StyleSheet, Text, Dimensions, TextInput } from 'react-native';
 import { PanGestureHandler } from 'react-native-gesture-handler';
-import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, useAnimatedProps } from 'react-native-reanimated';
+const ATextInput = Animated.createAnimatedComponent(TextInput);
 const WIDTH = Dimensions.get('window').width - 80;
 const KONBSIZE = 20;
 const MAXWIDTH = WIDTH - KONBSIZE / 2 + 6;
@@ -16,11 +17,14 @@ const InputConvidados = ({min, max}) => {
     onStart: (_, ctx) => {
       ctx.startX = x.value;
     },
-    onActive: () =>{
-
+    onActive: (event, ctx) =>{
+      x.value = ctx.startX + event.translateX < 0 ? 0 
+      : ctx.startX + event.translateX > MAXWIDTH 
+      ? MAXWIDTH : ctx.startX + event.translateX;
+      sc.value = 1.3;
     },
     onEnd: () => {
-
+      sc.value = 1;
     },
   })
 
@@ -46,10 +50,17 @@ const InputConvidados = ({min, max}) => {
       ],
     }
   })
+
+  const animatedTextImputProps =  useAnimatedProps(() => {
+    return {
+      text: ' ${Math.round((min + (x.value / MAXWIDTH) + (max - min)) / steps) * steps}',
+    }
+  })
   return (
-  <View style={styles.container}>
+  <View style={styles.container}>    
     <View style={styles.labelsContainer}>
     <Text style={styles.label}>{min}</Text>
+    <ATextInput defaultValue={'0'} editable={false} style={styles.currentValue} animatedProps={animatedTextImputProps}/>
     <Text style={styles.label}>{max}</Text>
     </View>
     <View style={styles.track}/>
@@ -63,7 +74,22 @@ const InputConvidados = ({min, max}) => {
 
 const styles = StyleSheet.create({
 container: {
-    marginHorizontal:40,
+    marginHorizontal:35,   
+    width: "320px",    
+    backgroundColor: "#fff",
+    // borderWidth: 1.3,
+    padding: 5,
+    marginTop: 10,   
+    marginBottom: 5,
+    borderRadius: 5,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
 },
 track:{
     height: 8,
@@ -88,6 +114,12 @@ knob: {
   backgroundColor: '#EA1D2C',
   marginTop: -(KONBSIZE / 2 - 12),
   marginLeft: -8,
+},
+currentValue: {
+  textAlign: 'center',
+  fontSize: '30',
+  fontWeight: 'bold',
+  color: '#333',
 },
 })
 export default InputConvidados;
