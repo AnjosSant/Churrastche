@@ -2,6 +2,11 @@ import React, { useState, useCallback } from "react";
 import {View,Text,StyleSheet,ScrollView,TouchableOpacity,} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
+import { Cookie_400Regular } from '@expo-google-fonts/cookie';
+import { ChangaOne_400Regular } from '@expo-google-fonts/changa-one';
+// import { useFonts, Blackhansans_400Regular } from '@expo-google-fonts/black-han-sans';
+
+
 
 import Header from "../../components/Header/header";
 import YoutubePlayer from "react-native-youtube-iframe";
@@ -9,6 +14,8 @@ import YoutubePlayer from "react-native-youtube-iframe";
 export default function Home({}) {
   let [fontsLoaded] = useFonts({
     Poppins_400Regular,
+    Cookie_400Regular,
+    ChangaOne_400Regular,
   }); 
 
   const navigation = useNavigation();
@@ -60,13 +67,13 @@ export default function Home({}) {
             <Text style={styles.textWhite}>Receitas</Text>
           </View>
           <View style={styles.yt}>
-          <YoutubePlayer
+          {/* <YoutubePlayer
             height={300}
             width={300}
             play={playing}
             videoId={"kWH9FDwfm0Y"}
             onChanceState={onStateChange}
-          />
+          /> */}
         </View>
         </View>
       </View>
@@ -81,10 +88,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontSize: 55,
-    fontWeight: "bold",
+    fontSize: 90,
     marginTop: 40,
-    fontFamily: "Poppins_400Regular",
+    fontFamily: "Cookie_400Regular",
 
   },
   cardRed: {
@@ -96,10 +102,10 @@ const styles = StyleSheet.create({
   textChamamento: {
     color: "#fff",
     fontSize: 36,
-    fontWeight: "bold",
     alignItems: "center",
     textAlign: "center",
     marginTop: 35,
+    fontFamily: "ChangaOne_400Regular",
 
   },
   textPreencher: {
@@ -111,7 +117,8 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginRight: 30,
     marginTop: -40,
-
+    fontFamily: "Poppins_400Regular",
+    
   },
   buttonNext: {
     marginLeft: "auto",
@@ -123,6 +130,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   textAvancar: {
+    fontFamily: "Poppins_400Regular",
     marginLeft: "auto",
     marginRight: "auto",
     marginTop: "auto",
@@ -142,9 +150,9 @@ const styles = StyleSheet.create({
   },
   textWhite: {
     textAlign: "center",
-    fontSize: 55,
-    fontWeight: "bold",
-    marginTop: 10,
+    fontSize: 90,
+    marginTop: 20,
+    fontFamily: "Cookie_400Regular",
 
   },
   yt: {

@@ -16,7 +16,9 @@ export default function Header({name}) {
    <View style={styles.container}>
       <View style={styles.content} >
         <Image style={styles.imagem_logo} source={Logoapp} alt='header'/>
-        <Text style={styles.nome_pagina}>{name}</Text>
+        <View style={styles.texto}>
+          <Text style={styles.nome_pagina}>{name}</Text>
+        </View>
       </View>
    </View>
   );
@@ -27,7 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EA1D2C',
     paddingTop: StatusBarHeight,
     flexDirection: 'row',
-    paddingStart: 20,
+    paddingStart: 2,
     paddingEnd: 20,
     paddingBottom: 15,
     height: 90,
@@ -37,19 +39,26 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-between',
   },
   imagem_logo:{
     width: 100,
     height: 100,
     marginBottom: 45,
+    flex: "ended"
   },
   nome_pagina:{
     color: '#fff',
     fontWeight: 400,
     fontSize: 20,
     marginBottom: 35,
-    marginRight: 10,
     fontFamily: "Poppins_400Regular",
   },
-})
+  texto:{
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent:'center',
+    right: 10,
+
+  }
+});
