@@ -101,7 +101,9 @@ export default function Home() {
     <ScrollView>
       <Header name="shop" />
       <View style={styles.container1}>
-        <View style={styles.letra}>Corte (Bovina)</View>
+        <View style={styles.letra}>
+        <Text style={styles.textHeader}>Corte bovino</Text>
+        </View>
         <View style={styles.header1}>
           <Text style={styles.textHeader}>Picanha Angus - R$ 98,96 / Kg</Text>
           <View style={styles.button}>
@@ -140,7 +142,9 @@ export default function Home() {
           </View>
         </View>
 
-        <View style={styles.letra}>Corte (Suína)</View>
+        <View style={styles.letra}>
+        <Text style={styles.textHeader}>Corte suíno</Text>
+        </View>
         <View style={styles.header1}>
           <Text style={styles.textHeader}>Picanha suíns - R$ 23,96 / Kg </Text>
           <View style={styles.button}>
@@ -178,7 +182,9 @@ export default function Home() {
           </View>
         </View>
 
-        <View style={styles.letra}>Essenciais</View>
+        <View style={styles.letra}>
+        <Text style={styles.textHeader}>Essenciais</Text>
+        </View>
         <View style={styles.header1}>
           <Text style={styles.textHeader}>Fósforos - R$ 2,50 / Un</Text>
           <View style={styles.button}>
@@ -228,7 +234,9 @@ export default function Home() {
           </View>
         </View>
 
-        <View style={styles.letra}>Complementos</View>
+        <View style={styles.letra}>
+        <Text style={styles.textHeader}>Complementos</Text>
+        </View>
         <View style={styles.header1}>
           <Text style={styles.textHeader}>Arroz - R$ 4,50 / Kg</Text>
           <View style={styles.button}>
@@ -266,7 +274,9 @@ export default function Home() {
           </View>
         </View>
 
-        <View style={styles.letra}>Vegetariano</View>
+        <View style={styles.letra}>
+        <Text style={styles.textHeader}>Vegetariano</Text>
+        </View>
         <View style={styles.header1}>
           <Text style={styles.textHeader}>
             Isca de peixe vegetal - R$ 43,00 / Kg
@@ -308,7 +318,9 @@ export default function Home() {
           </View>
         </View>
 
-        <View style={styles.letra}>Bebidas (Alcoólicas)</View>
+        <View style={styles.letra}>
+        <Text style={styles.textHeader}>Bebidas alcoólicas</Text>
+        </View>
         <View style={styles.header1}>
           <Text style={styles.textHeader}>Skol lata - R$ 2,60 / un</Text>
           <View style={styles.button}>
@@ -346,7 +358,9 @@ export default function Home() {
           </View>
         </View>
 
-        <View style={styles.letra}>Bebidas (Não Alcoólicas)</View>
+        <View style={styles.letra}>
+        <Text style={styles.textHeader}>Bebidas não alcoólicas</Text>
+        </View>
         <View style={styles.header1}>
           <Text style={styles.textHeader}>Água 1,5l - R$ 2,75 / un </Text>
           <View style={styles.button}>
@@ -430,6 +444,10 @@ const styles = StyleSheet.create({
     height: 1850,
   },
   textbox: {
+    alignItems: "center",
+    alignContent: "center",
+  },
+  textBody: {
     alignItems: "center",
     alignContent: "center",
   },

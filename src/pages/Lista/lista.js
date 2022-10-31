@@ -13,9 +13,9 @@ export default function Home() {
       </SafeAreaView>
       <View style={styles.header}>
         <AntDesign name="shoppingcart" size={24} color="black" />
-        lista
+        <Text style={styles.textHeader}>Lista</Text>
         <MaterialIcons name="list-alt" size={24} color="black" />
-        Resumo
+        <Text style={styles.textHeader}>Resumo</Text>
       </View>
       <View
         style={{

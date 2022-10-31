@@ -6,10 +6,8 @@ import { Cookie_400Regular } from '@expo-google-fonts/cookie';
 import { ChangaOne_400Regular } from '@expo-google-fonts/changa-one';
 // import { useFonts, Blackhansans_400Regular } from '@expo-google-fonts/black-han-sans';
 
-
-
 import Header from "../../components/Header/header";
-import YoutubePlayer from "react-native-youtube-iframe";
+// import YoutubePlayer from "react-native-youtube-iframe";
 
 export default function Home({}) {
   let [fontsLoaded] = useFonts({
