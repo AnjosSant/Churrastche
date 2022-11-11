@@ -37,7 +37,7 @@ function Routes() {
         }}
       />
       <Tab.Screen
-        name="Shop"
+        name="Shopping"
         component={Loja}
         options={{
           headerShown: false,
