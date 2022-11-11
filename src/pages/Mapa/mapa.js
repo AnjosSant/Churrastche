@@ -6,14 +6,17 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Button,
+  Card,
 } from 'react-native';
 import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
 import MapView from 'react-native-maps';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import apiRUA from '../../services/api';
 import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
+
 import Header from '../../../components/Header/header';
 
 export default function Mapa() {
@@ -24,6 +27,8 @@ export default function Mapa() {
   const [cep, setCep] = useState();
   const [loading, setLoading] = useState(true);
   const [loadingCep, setLoadingCep] = useState(true);
+  const [makers, setMakers] = useState([]);
+  const [loadingLugar, setLoadingLugar] = useState(true);
   const [region, setRegion] = useState({
     latitude: '',
     longitude: '',
@@ -68,23 +73,43 @@ export default function Mapa() {
       });
     console.log(data);
 
-    let response = await axios
+    let response = await apiRUA
       .get(
-        `https://geocode.search.hereapi.com/v1/geocode?q=${data.logradouro}+${data.bairro}&apiKey=7nLIjfnwqOs776DoUpF3`
+        `geocode?q=${data.logradouro}+${data.bairro}&apiKey=ZEUevErmmQDeBAmxSFUGJyqWAwdL4WtA2Ljnyd023X8`
       )
       .catch((erro) => {
         alert('CEP inválido');
       });
-    console.log(response.data.items[0].position);
+
     setRegion({
       latitude: response.data.items[0].position.lat,
       longitude: response.data.items[0].position.lng,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
     });
+
     setLoadingCep(false);
   };
 
+  const buscarLugar = async () => {
+    let lat = region.latitude
+    let lng = region.longitude
+
+    console.log(lat);
+    console.log(lng);
+
+    let { data } = await axios
+      .get(
+        `https://discover.search.hereapi.com/v1/discover?at=${lat},${lng}&limit=5&q=acougue&apiKey=ZEUevErmmQDeBAmxSFUGJyqWAwdL4WtA2Ljnyd023X8`
+      )
+      .catch((erro) => {
+        console.log(erro);
+      });
+    console.log(data);
+    setMakers(data.items)
+    setLoadingLugar(false);
+  };
+  console.log(makers)
   let [fontsLoaded] = useFonts({
     Poppins_400Regular,
   });
@@ -92,9 +117,9 @@ export default function Mapa() {
   if (!fontsLoaded) {
     return null;
   }
-  const navigation = useNavigation();
+
   return (
-    <ScrollView>
+    <View>
       <Header name="Mapa" />
       <Text style={styles.nome_endereco}>Endereço do Evento</Text>
       <View style={styles.textInput}>
@@ -133,19 +158,31 @@ export default function Mapa() {
                 ) : (
                   <Marker title="Local do evento" coordinate={region} />
                 )}
+                {loadingLugar ? "" : makers.map(item => (
+                  <Marker coordinate={{
+                    latitude: item.position.lat,
+                    longitude: item.position.lng,
+                  }} title={item.title}/>
+                ))}
               </MapView>
             )}
           </View>
         </View>
-         <TouchableOpacity
-          style={styles.buttonNext}
-          onPress={() => {
-            navigation.navigate('Lista');
-          }}>
-          <Icon name="arrow-right" size={20} color="#000" />
-        </TouchableOpacity>
+        <View style={styles.content_buscarLugar}>
+          <Button
+            style={styles.button}
+            onPress={buscarLugar}
+            title="Buscar Açogues proximos"
+            color="#EA1D2C"
+            accessibilityLabel="Learn more about this purple button"
+          />
+          <ScrollView horizontal={true} style={styles.scrollugar}>
+            <View style={styles.input_lugar}>
+            </View>
+          </ScrollView>
+        </View>
       </View>
-    </ScrollView>
+    </View>
   );
 }
 
@@ -175,7 +212,7 @@ const styles = StyleSheet.create({
     right: 15,
   },
   content: {
-    height: 900,
+    height: 1000,
   },
   nome_endereco: {
     fontSize: 20,
@@ -191,7 +228,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   text_content: {
-    top: 70,
+    top: 50,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -212,7 +249,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     width: '100%',
     height: 600,
-    top: 100,
+    top: 80,
     borderRadius: 5,
     backgroundColor: '#fff',
     shadowOffset: {
@@ -225,17 +262,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  buttonNext: {
-    position: 'absolute',
-    right: 35,
-    bottom: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignContent: 'center',
-    width: '15%',
-    height: 60,
-    borderRadius: 70,
-    backgroundColor: '#EA1D2C',
-    padding: 10,
+  content_buscarLugar: {
+    top: 50,
+  },
+  button: {},
+  scrollugar: {
+    top: 200,
+    left: 15,
+  },
+  input_lugar: {
+    flexDirection: 'row',
   },
 });
