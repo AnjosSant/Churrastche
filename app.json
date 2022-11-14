@@ -4,29 +4,37 @@
     "slug": "Churrastche",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
-      "config":{
-        "googleMaps":{
+      "config": {
+        "googleMaps": {
           "apiKey": "AIzaSyAwx5ltxOuGFiZw8vJzaB5DXzhsH28_xAI"
         }
       },
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "",
         "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.j040.Churrastche"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7ac709a4-1356-4798-b8fe-e62cc563e10f"
       }
     }
   }

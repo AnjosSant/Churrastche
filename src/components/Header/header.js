@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Image} from 'react-native';
-import Logoapp from '../../src/img/LOGO2.png';
+import Logoapp from '../../img/LOGO2.png';
 
 export default function Header({ name }) {
   return (

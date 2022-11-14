@@ -1,6 +1,6 @@
 import {View,Text,StyleSheet, ScrollView, TouchableOpacity,} from 'react-native';
 import React, { useState, useCallback } from 'react';
-import Header from '../../../components/Header/header';
+import Header from '../../components/Header/header';
 import { useNavigation } from '@react-navigation/native';
 import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
 import { Cookie_400Regular } from '@expo-google-fonts/cookie';

@@ -6,30 +6,35 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Button,
+  Card,
 } from 'react-native';
 import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
 import MapView from 'react-native-maps';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
-import axios from "axios"
+import apiRUA from '../../services/api';
+import axios from 'axios';
 
-import Header from '../../../components/Header/header';
+import Header from '../../components/Header/header';
 
 export default function Mapa() {
   const [location, setLocation] = useState({
     latitude: '',
     longitude: '',
   });
-  const [cep, setCep] = useState()
+  const [cep, setCep] = useState();
   const [loading, setLoading] = useState(true);
   const [loadingCep, setLoadingCep] = useState(true);
+  const [makers, setMakers] = useState([]);
+  const [loadingLugar, setLoadingLugar] = useState(true);
   const [region, setRegion] = useState({
     latitude: '',
     longitude: '',
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
-  })
+  });
   const [mapRegion, setmapRegion] = useState({
     latitude: '',
     longitude: '',
@@ -61,26 +66,47 @@ export default function Mapa() {
   }, []);
 
   const buscaCep = async () => {
-    let { data } = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
-    .catch(err =>{
-      alert("digite o CEP")
-    })
-    console.log(data)
+    let { data } = await axios
+      .get(`https://viacep.com.br/ws/${cep}/json/`)
+      .catch((err) => {
+        alert('digite o CEP');
+      });
 
-    let response = await axios.get (`https://geocode.search.hereapi.com/v1/geocode?q=${data.logradouro}+${data.bairro}&apiKey=7nLIjfnwqOs776DoUpF3`)
-    .catch (erro =>{
-      alert("CEP inválido")
-    })
-    console.log(response.data.items[0].position)
+    let response = await apiRUA
+      .get(
+        `geocode?q=${data.logradouro}+${data.bairro}&apiKey=ZEUevErmmQDeBAmxSFUGJyqWAwdL4WtA2Ljnyd023X8`
+      )
+      .catch((erro) => {
+        alert('CEP inválido');
+      });
+
     setRegion({
-    latitude: response.data.items[0].position.lat,
-    longitude: response.data.items[0].position.lng,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-    })
-    setLoadingCep(false);
-  }
+      latitude: response.data.items[0].position.lat,
+      longitude: response.data.items[0].position.lng,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
+    });
 
+    setLoadingCep(false);
+  };
+
+  const buscarLugar = async () => {
+    let lat = region.latitude
+    let lng = region.longitude
+
+
+
+    let { data } = await axios
+      .get(
+        `https://discover.search.hereapi.com/v1/discover?at=${lat},${lng}&limit=5&q=acougue&apiKey=ZEUevErmmQDeBAmxSFUGJyqWAwdL4WtA2Ljnyd023X8`
+      )
+      .catch((erro) => {
+        alert("erro");
+      });
+
+    setMakers(data.items)
+    setLoadingLugar(false);
+  };
 
   let [fontsLoaded] = useFonts({
     Poppins_400Regular,
@@ -91,7 +117,7 @@ export default function Mapa() {
   }
 
   return (
-    <ScrollView>
+    <View>
       <Header name="Mapa" />
       <Text style={styles.nome_endereco}>Endereço do Evento</Text>
       <View style={styles.textInput}>
@@ -117,17 +143,44 @@ export default function Mapa() {
         </View>
         <View style={styles.content_mapa}>
           <View style={styles.mapa}>
-              {loading ? '' : 
-              <MapView style={styles.map} initialRegion={mapRegion} region={region}>
-                <Marker title="Sua localização" coordinate={location}  />
-                {loadingCep ? '' : <Marker title="Local do evento" coordinate={region} />}
-                </MapView>}
-
-            
+            {loading ? (
+              ''
+            ) : (
+              <MapView
+                style={styles.map}
+                initialRegion={mapRegion}
+                region={region}>
+                <Marker title="Sua localização" coordinate={location} />
+                {loadingCep ? (
+                  ''
+                ) : (
+                  <Marker title="Local do evento" coordinate={region} />
+                )}
+                {loadingLugar ? "" : makers.map(item => (
+                  <Marker coordinate={{
+                    latitude: item.position.lat,
+                    longitude: item.position.lng,
+                  }} title={item.title}/>
+                ))}
+              </MapView>
+            )}
           </View>
         </View>
+        <View style={styles.content_buscarLugar}>
+          <Button
+            style={styles.button}
+            onPress={buscarLugar}
+            title="Buscar Açogues proximos"
+            color="#EA1D2C"
+            accessibilityLabel="Learn more about this purple button"
+          />
+          <ScrollView horizontal={true} style={styles.scrollugar}>
+            <View style={styles.input_lugar}>
+            </View>
+          </ScrollView>
+        </View>
       </View>
-    </ScrollView>
+    </View>
   );
 }
 
@@ -157,7 +210,7 @@ const styles = StyleSheet.create({
     right: 15,
   },
   content: {
-    height: 900,
+    height: 1000,
   },
   nome_endereco: {
     fontSize: 20,
@@ -173,7 +226,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   text_content: {
-    top: 70,
+    top: 50,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -194,7 +247,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     width: '100%',
     height: 600,
-    top: 100,
+    top: 80,
     borderRadius: 5,
     backgroundColor: '#fff',
     shadowOffset: {
@@ -206,5 +259,16 @@ const styles = StyleSheet.create({
     elevation: 5,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  content_buscarLugar: {
+    top: 50,
+  },
+  button: {},
+  scrollugar: {
+    top: 200,
+    left: 15,
+  },
+  input_lugar: {
+    flexDirection: 'row',
   },
 });
