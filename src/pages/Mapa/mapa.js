@@ -7,7 +7,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Button,
-  Card,
 } from 'react-native';
 import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
 import MapView from 'react-native-maps';
@@ -16,6 +15,7 @@ import { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import apiRUA from '../../services/api';
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 
 import Header from '../../components/Header/header';
 
@@ -41,6 +41,7 @@ export default function Mapa() {
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   });
+  const navigation = useNavigation();
 
   useEffect(() => {
     (async () => {
@@ -117,7 +118,7 @@ export default function Mapa() {
   }
 
   return (
-    <View>
+    <ScrollView>
       <Header name="Mapa" />
       <Text style={styles.nome_endereco}>Endereço do Evento</Text>
       <View style={styles.textInput}>
@@ -179,8 +180,15 @@ export default function Mapa() {
             </View>
           </ScrollView>
         </View>
+        <TouchableOpacity
+          style={styles.buttonNext}
+          onPress={() => {
+            navigation.navigate('Lista');
+          }}>
+          <Text style={styles.finalizar_text}>Finalizar Compra</Text>
+        </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -271,4 +279,23 @@ const styles = StyleSheet.create({
   input_lugar: {
     flexDirection: 'row',
   },
+  buttonNext: {
+    position: 'absolute',
+    right: 25,
+    bottom: 90,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignContent: 'center',
+    width: '90%',
+    height: 60,
+    borderRadius: 70,
+    backgroundColor: '#EA1D2C',
+    padding: 10,
+  },
+  finalizar_text: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+
+  }
 });

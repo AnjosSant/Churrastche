@@ -1,17 +1,53 @@
-import React from 'react';
+import React , {useContext, useEffect, useState} from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../../components/Header/header';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { Context } from '../../context';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function Home() {
+
+export default function Geral() {
+
+const [dados, setDados] = useState([]);
+const {CalculoGeral} = useContext(Context);
+
+useEffect(() => {
+  (async () => {
+    let convidados = await AsyncStorage.getItem("Convidados");
+    let shop = await AsyncStorage.getItem("dataCortes");
+    //CONVERTENDO DADOS PARA JSON
+    convidados = JSON.parse(convidados);
+    shop = JSON.parse(shop);
+
+    setDados(CalculoGeral(convidados, shop));
+    console.log(shop)
+    console.log(convidados)
+    
+  })();
+}, []);
+
+console.log(dados)
+
+ var carne = dados[0]
+ var bebidas = dados[1]
+
+ console.log(carne)
+
+
   return (
     <ScrollView>
       <View style={lista.container}>
         <Header name="Resultado" />
         <View style={lista.cardHeader}><Text style={lista.text}>Lista de compra</Text></View>
-        <View style={lista.CardBody}></View>
+        <View style={lista.CardBody}>
+          {carne.map((item) => (
+            <View>
+              <Text>{item.tipo}</Text>
+            </View>
+          ))}
+        </View>
         <View style={lista.CardFooter}><Text style={lista.text}>Total</Text></View>
 
         <View style={resumo.cardHeader}><Text style={resumo.text}>Lista de despesas</Text></View>
@@ -20,7 +56,7 @@ export default function Home() {
       </View>
     </ScrollView>
   );
-}
+  }
 const lista = StyleSheet.create({
   container: {
     height:1200,

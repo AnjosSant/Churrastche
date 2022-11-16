@@ -26,29 +26,29 @@ export default function Convidados() {
   const navigation = useNavigation();
 
   var dataPart = [
-    {sexo: "mulher", quantidade: Number(qntm.toFixed(0))},
-    {sexo: "homem", quantidade: Number(qnth.toFixed(0))},
-    {sexo: "crianca", quantidade: Number(qntc.toFixed(0))},
-    {horas: "horastotal", quantidade: Number(horas.toFixed(0))},
-    {localevento: "precolocal", quantidade: Number(local.toFixed(0))},
-  ]
+    { sexo: 'mulher', quantidade: Number(qntm.toFixed(0)) },
+    { sexo: 'homem', quantidade: Number(qnth.toFixed(0)) },
+    { sexo: 'crianca', quantidade: Number(qntc.toFixed(0)) },
+    { horas: 'horastotal', quantidade: Number(horas.toFixed(0)) },
+    { localevento: 'precolocal', quantidade: Number(local.toFixed(0)) },
+  ];
 
   const guardarBanco = () => {
-    let qtdPessoa = dataPart.filter(item => item.quantidade > 0);
-  qtdPessoa.length > 0 ? AsyncStorage.SetItem("Convidados", JSON.stringify(qtdPessoa)) && navigation.navigate("Shop") : 
-  Toast.show({
-    type: "info",
-    position: "bottom",
-    text1: "Selecione ao menos 1 participante!",
-    visibilityTime: 3000,
-    autoHide: true,
-    onShow: () => {},
-    onHide: () => {},
-  });
+    let qtdPessoa = dataPart.filter((item) => item.quantidade > 0);
+
+    qtdPessoa.length > 0
+      ? AsyncStorage.setItem('Convidados', JSON.stringify(qtdPessoa)) &&
+        navigation.navigate('Shop')
+      : Toast.show({
+          type: 'info',
+          position: 'bottom',
+          text1: 'Selecione ao menos 1 participante!',
+          visibilityTime: 3000,
+          autoHide: true,
+          onShow: () => {},
+          onHide: () => {},
+        });
   };
-
-  
-
 
   return (
     <ScrollView style={styles.scroll}>
@@ -145,15 +145,13 @@ export default function Convidados() {
             minimumTrackTintColor="#EA1D2C"
             maximumTrackTintColor="#777"
           />
-            <Toast 
-    
-            />
+          <Toast />
         </View>
 
         <TouchableOpacity
           style={styles.buttonNext}
           onPress={() => {
-            guardarBanco()
+            guardarBanco();
           }}>
           <Icon name="arrow-right" size={20} color="#000" />
         </TouchableOpacity>

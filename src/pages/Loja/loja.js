@@ -1,253 +1,327 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Switch, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Switch,
+  TouchableOpacity,
+} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Header from '../../components/Header/header';
+import Toast from 'react-native-toast-message';
 
 export default function Home() {
+  const [isPicanhaA, setisPicanhaA] = useState(false);
+  const [isCupim, setisCupim] = useState(false);
+  const [ismaminha, setismaminha] = useState(false);
+  const [isPicanhaS, setisPicanhaS] = useState(false);
+  const [isPernil, setisPernil] = useState(false);
+  const [isLinguica, setisLinguica] = useState(false);
 
-  const [isEnabled, setIsEnabled] = useState(false);
-  const [isEnabled2, setIsEnabled2] = useState(false);
-  const [isEnabled3, setIsEnabled3] = useState(false);
-  const [isEnabled4, setIsEnabled4] = useState(false);
-  const [isEnabled5, setIsEnabled5] = useState(false);
-  const [isEnabled6, setIsEnabled6] = useState(false);
-  const [isEnabled7, setIsEnabled7] = useState(false);
-  const [isEnabled8, setIsEnabled8] = useState(false);
-  const [isEnabled9, setIsEnabled9] = useState(false);
-  const [isEnabled10, setIsEnabled10] = useState(false);
-  const [isEnabled11, setIsEnabled11] = useState(false);
-  const [isEnabled12, setIsEnabled12] = useState(false);
-  const [isEnabled13, setIsEnabled13] = useState(false);
-  const [isEnabled14, setIsEnabled14] = useState(false);
-  const [isEnabled15, setIsEnabled15] = useState(false);
-  const [isEnabled16, setIsEnabled16] = useState(false);
-  const [isEnabled17, setIsEnabled17] = useState(false);
-  const [isEnabled18, setIsEnabled18] = useState(false);
-  const [isEnabled19, setIsEnabled19] = useState(false);
-  const [isEnabled20, setIsEnabled20] = useState(false);
-  const [isEnabled21, setIsEnabled21] = useState(false);
-  const [isEnabled22, setIsEnabled22] = useState(false);
-  const [isEnabled23, setIsEnabled23] = useState(false);
+
+  const [isCoxa, setisCoxa] = useState(false);
+  const [isCoracao, setisCoracao] = useState(false);
+  const [isAsa, setisAsa] = useState(false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const [isFosforos, setisFosforos] = useState(false);
+  const [isSal, setisSal] = useState(false);
+  const [isCarvao, setisCarvao] = useState(false);
+  const [isGelo, setisGelo] = useState(false);
+  const [isArroz, setisArroz] = useState(false);
+  const [isFarofa, setisFarofa] = useState(false);
+  const [isPao, setisPao] = useState(false);
+  const [isIscaPeixe, setisIscaPeixe] = useState(false);
+  const [isKibe, setisKibe] = useState(false);
+  const [isHamburguerV, setisHamburguerV] = useState(false);
+  const [isSkol, setisSkol] = useState(false);
+  const [isHeineken, setisHeineken] = useState(false);
+  const [isJack, setisJack] = useState(false);
+  const [isAgua, setisAgua] = useState(false);
+  const [isGuarana, setisGuarana] = useState(false);
+  const [isCoca_cola, setisCoca_cola] = useState(false);
+  const [isSuco, setisSuco] = useState(false);
+  const [isDescartveis, setisDescartveis] = useState(false);
 
   const picanha_Angus = () => {
-    setIsEnabled((previousState) => !previousState);
+    setisPicanhaA((previousState) => !previousState);
   };
   const cupim = () => {
-    setIsEnabled2((previousState) => !previousState);
+    setisCupim((previousState) => !previousState);
   };
   const maminha = () => {
-    setIsEnabled3((previousState) => !previousState);
+    setismaminha((previousState) => !previousState);
   };
-  const picanha_suíns = () => {
-    setIsEnabled4((previousState) => !previousState);
+  const picanha_suins = () => {
+    setisPicanhaS((previousState) => !previousState);
   };
   const pernil = () => {
-    setIsEnabled5((previousState) => !previousState);
+    setisPernil((previousState) => !previousState);
   };
-  const linguiça = () => {
-    setIsEnabled6((previousState) => !previousState);
+  const linguica = () => {
+    setisLinguica((previousState) => !previousState);
   };
-  const fósforos = () => {
-    setIsEnabled7((previousState) => !previousState);
+const coxa = () => {
+    setisCoxa((previousState) => !previousState);
+  };
+const coracao = () => {
+    setisCoracao((previousState) => !previousState);
+  };
+const asa = () => {
+    setisAsa((previousState) => !previousState);
+  };
+  const fosforos = () => {
+    setisFosforos((previousState) => !previousState);
   };
   const sal_grosso = () => {
-    setIsEnabled8((previousState) => !previousState);
+    setisSal((previousState) => !previousState);
   };
-  const carvão = () => {
-    setIsEnabled9((previousState) => !previousState);
+  const carvao = () => {
+    setisCarvao((previousState) => !previousState);
   };
   const gelo = () => {
-    setIsEnabled10((previousState) => !previousState);
+    setisGelo((previousState) => !previousState);
   };
   const arroz = () => {
-    setIsEnabled11((previousState) => !previousState);
+    setisArroz((previousState) => !previousState);
   };
   const farofa = () => {
-    setIsEnabled12((previousState) => !previousState);
+    setisFarofa((previousState) => !previousState);
   };
-  const pão_francês = () => {
-    setIsEnabled13((previousState) => !previousState);
+  const pao_frances = () => {
+    setisPao((previousState) => !previousState);
   };
   const isca_de_peixe_vegetal = () => {
-    setIsEnabled14((previousState) => !previousState);
+    setisIscaPeixe((previousState) => !previousState);
   };
   const kibe_vegetal = () => {
-    setIsEnabled15((previousState) => !previousState);
+    setisKibe((previousState) => !previousState);
   };
-  const hambúrguer_vegetal = () => {
-    setIsEnabled16((previousState) => !previousState);
+  const hamburguer_vegetal = () => {
+    setisHamburguerV((previousState) => !previousState);
   };
   const skol_lata = () => {
-    setIsEnabled17((previousState) => !previousState);
+    setisSkol((previousState) => !previousState);
   };
   const heineken_lata = () => {
-    setIsEnabled18((previousState) => !previousState);
+    setisHeineken((previousState) => !previousState);
   };
   const jack_Daniels = () => {
-    setIsEnabled19((previousState) => !previousState);
+    setisJack((previousState) => !previousState);
   };
   const agua = () => {
-    setIsEnabled20((previousState) => !previousState);
+    setisAgua((previousState) => !previousState);
   };
-  const guaraná = () => {
-    setIsEnabled21((previousState) => !previousState);
+  const guarana = () => {
+    setisGuarana((previousState) => !previousState);
   };
   const coca_cola = () => {
-    setIsEnabled22((previousState) => !previousState);
+    setisCoca_cola((previousState) => !previousState);
   };
   const suco = () => {
-    setIsEnabled23((previousState) => !previousState);
+    setisSuco((previousState) => !previousState);
   };
-   const dataCortes = [
+  const descartavel = () => {
+    setisDescartveis((previousState) => !previousState);
+  };
+  const dataCortes = [
     {
-      tipo: "bovino",
-      nome: "Picanha_Angus",
+      tipo: 'bovino',
+      nome: 'Picanha_Angus',
       preco: 98,
-      Estado: isEnabled,
+      Estado: isPicanhaA,
     },
     {
-      tipo: "bovino",
-      nome: "Cupim",
+      tipo: 'bovino',
+      nome: 'Cupim',
       preco: 34,
-      Estado: isEnabled2,
+      Estado: isCupim,
     },
     {
-      tipo: "bovino",
-      nome: "maminha",
+      tipo: 'bovino',
+      nome: 'maminha',
       preco: 49,
-      Estado: isEnabled3,
+      Estado: ismaminha,
     },
     {
-      tipo: "suíno",
-      nome: "Picanha suína",
+      tipo: 'suino',
+      nome: 'Picanha suína',
       preco: 23,
-      Estado: isEnabled4,
+      Estado: isPicanhaS,
     },
     {
-      tipo: "suíno",
-      nome: "Pernil",
+      tipo: 'suino',
+      nome: 'Pernil',
       preco: 26,
-      Estado:  isEnabled5,
+      Estado: isPernil,
     },
     {
-      tipo: "suíno",
-      nome: "linguiça",
+      tipo: 'suino',
+      nome: 'linguica',
       preco: 16,
-      Estado:  isEnabled6,
+      Estado: isLinguica,
     },
     {
-      tipo: "Essenciais",
-      nome: "fósforos",
+      tipo : 'frango',
+      nomo : 'coxa',
+      preco : 13.98,
+      Estado : isCoxa
+    },
+    {
+      tipo : 'frango',
+      nomo : 'coracao',
+      preco : 25.46,
+      Estado : isCoracao
+    },
+    {
+      tipo : 'frango',
+      nomo : 'asa',
+      preco : 13.96,
+      Estado : isAsa
+    },
+    {
+      tipo: 'essenciais',
+      nome: 'fósforos',
       preco: 2.5,
-      Estado:  isEnabled7,
+      Estado: isFosforos,
     },
     {
-      tipo: "Essenciais",
-      nome: "sal grosso",
+      tipo: 'essenciais',
+      nome: 'sal grosso',
       preco: 4.5,
-      Estado:  isEnabled8,
+      Estado: isSal,
     },
     {
-      tipo: "Essenciais",
-      nome: " carvão",
+      tipo: 'essenciais',
+      nome: ' carvão',
       preco: 20,
-      Estado:  isEnabled9,
+      Estado: isCarvao,
     },
     {
-      tipo: "Essenciais",
-      nome: " gelo",
+      tipo: 'essenciais',
+      nome: ' gelo',
       preco: 10,
-      Estado:  isEnabled10,
+      Estado: isGelo,
     },
     {
-      tipo: "Complementos",
-      nome: " arroz",
+      tipo: 'complementos',
+      nome: ' arroz',
       preco: 4.5,
-      Estado:  isEnabled11,
+      Estado: isArroz,
     },
     {
-      tipo: "Complementos",
-      nome: " farofa",
+      tipo: 'complementos',
+      nome: ' farofa',
       preco: 6.5,
-      Estado:  isEnabled12,
+      Estado: isFarofa,
     },
     {
-      tipo: "Complementos",
-      nome: " pão francês",
+      tipo: 'complementos',
+      nome: ' pão francês',
       preco: 6.5,
-      Estado:  isEnabled13,
+      Estado: isPao,
     },
     {
-      tipo: "Vegetariano",
-      nome: " isca_de_peixe_vegetal",
+      tipo: 'vegetariano',
+      nome: ' isca_de_peixe_vegetal',
       preco: 43,
-      Estado:  isEnabled14,
+      Estado: isIscaPeixe,
     },
     {
-      tipo: "Vegetariano",
-      nome: "kibe vegetal ",
+      tipo: 'vegetariano',
+      nome: 'kibe vegetal ',
       preco: 38,
-      Estado:  isEnabled15,
+      Estado: isKibe,
     },
     {
-      tipo: "Vegetariano",
-      nome: "hambúrguer vegetal ",
+      tipo: 'vegetariano',
+      nome: 'hambúrguer vegetal ',
       preco: 57,
-      Estado:  isEnabled16,
+      Estado: isHamburguerV,
     },
     {
-      tipo: "Bebidas_alcoólicas",
-      nome: "skol lat ",
-      preco: 2.60,
-      Estado:  isEnabled17,
+      tipo: 'bebidas_alcoólicas',
+      nome: 'skol lat ',
+      preco: 2.6,
+      Estado: isSkol,
     },
     {
-      tipo: "Bebidas_alcoólicas",
-      nome: "heineken lata ",
-      preco: 4.50,
-      Estado:  isEnabled18,
+      tipo: 'bebidas_alcoólicas',
+      nome: 'heineken lata ',
+      preco: 4.5,
+      Estado: isHeineken,
     },
     {
-      tipo: "Bebidas_alcoólicas",
-      nome: "jack Daniels ",
+      tipo: 'bebidas_alcoólicas',
+      nome: 'jack Daniels ',
       preco: 140,
-      Estado:  isEnabled19,
+      Estado: isJack,
     },
     {
-      tipo: "Bebidas_nao_alcoólicas",
-      nome: "agua ",
+      tipo: 'bebidas_nao_alcoólicas',
+      nome: 'agua ',
       preco: 2.75,
-      Estado:  isEnabled20,
+      Estado: isAgua,
     },
     {
-      tipo: "Bebidas_nao_alcoólicas",
-      nome: "guaraná ",
+      tipo: 'bebidas_nao_alcoólicas',
+      nome: 'guaraná ',
       preco: 5,
-      Estado:  isEnabled21,
+      Estado: isGuarana,
     },
     {
-      tipo: "Bebidas_nao_alcoólicas",
-      nome: "coca cola ",
+      tipo: 'bebidas_nao_alcoólicas',
+      nome: 'coca cola ',
       preco: 7,
-      Estado:  isEnabled22,
+      Estado: isCoca_cola,
     },
     {
-      tipo: "Bebidas_nao_alcoólicas",
-      nome: "suco ",
-      preco: 4.80,
-      Estado:  isEnabled23,
+      tipo: 'bebidas_nao_alcoólicas',
+      nome: 'suco ',
+      preco: 4.8,
+      Estado: isSuco,
+    },
+    {
+      tipo: 'descartavel',
+      nome: 'descartavel ',
+      preco: 35,
+      Estado: isDescartveis,
     },
   ];
-  //console.log(dataCortes[0].Estado)
 
   const guardarBanco = () => {
-    var filtroCortes = dataCortes.filter(cortes => cortes.Estado === true);
-   // console.log(filtroCortes)
-    filtroCortes.length > 0 ? AsyncStorage.setItem("cortes" , JSON.stringify(filtroCortes))  : ""
-  }
+    var filtroCortes = dataCortes.filter((dataCortes) => dataCortes.Estado === true);
 
+    
+    filtroCortes.length > 0
+      ? AsyncStorage.setItem('dataCortes', JSON.stringify(filtroCortes)) &&
+        navigation.navigate('Lista')
+      : Toast.show({
+          type: 'info',
+          position: 'bottom',
+          text1: 'Selecione ao menos 1 Item!',
+          visibilityTime: 3000,
+          autoHide: true,
+          onShow: () => {},
+          onHide: () => {},
+        });
+  };
 
   const navigation = useNavigation();
   return (
@@ -261,27 +335,27 @@ export default function Home() {
           <Text> Picanha Angus - R$ 98,96 / Kg </Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled ? '#fff' : '#ea1d2c'}
+            thumbColor={!isPicanhaA ? '#fff' : '#ea1d2c'}
             onValueChange={picanha_Angus}
-            value={isEnabled}
+            value={isPicanhaA}
           />
         </View>
         <View style={style.textHeader1}>
           <Text> Cupim - R$ 34,96 / Kg </Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled2 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isCupim ? '#fff' : '#ea1d2c'}
             onValueChange={cupim}
-            value={isEnabled2}
+            value={isCupim}
           />
         </View>
         <View style={style.textHeader1}>
           <Text> Maminha - R$ 49,96 / Kg </Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled3 ? '#fff' : '#ea1d2c'}
+            thumbColor={!ismaminha ? '#fff' : '#ea1d2c'}
             onValueChange={maminha}
-            value={isEnabled3}
+            value={ismaminha}
           />
         </View>
         <View style={style.container}>
@@ -291,30 +365,63 @@ export default function Home() {
           <Text>Picanha suína - R$ 23,96 / Kg </Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled4 ? '#fff' : '#ea1d2c'}
-            onValueChange={picanha_suíns}
-            value={isEnabled4}
+            thumbColor={!isPicanhaS ? '#fff' : '#ea1d2c'}
+            onValueChange={picanha_suins}
+            value={isPicanhaS}
           />
         </View>
         <View style={style.textHeader1}>
           <Text>Pernil - R$ 26,00 / Kg </Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled5 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isPernil ? '#fff' : '#ea1d2c'}
             onValueChange={pernil}
-            value={isEnabled5}
+            value={isPernil}
           />
         </View>
         <View style={style.textHeader1}>
-          <Text>Linguiça - R$ 15,96 / Kg </Text>
+          <Text>Linguica - R$ 15,96 / Kg </Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled6 ? '#fff' : '#ea1d2c'}
-            onValueChange={linguiça}
-            value={isEnabled6}
+            thumbColor={!isLinguica ? '#fff' : '#ea1d2c'}
+            onValueChange={linguica}
+            value={isLinguica}
+          />
+        </View>
+    
+        <View style={style.container}><Text>frango</Text></View>
+
+        <View style={style.textHeader1}>
+          <Text> Coxa - R$ 13,98 / Kg </Text>
+          <Switch
+            trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
+            thumbColor={!isCoxa ? '#fff' : '#ea1d2c'}
+            onValueChange={coxa}
+            value={isCoxa}
           />
         </View>
 
+         
+        <View style={style.textHeader1}>
+          <Text>Coração - R$ 25,46 / Kg </Text>
+          <Switch
+            trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
+            thumbColor={!isCoracao ? '#fff' : '#ea1d2c'}
+            onValueChange={coracao}
+            value={isCoracao}
+          />
+        </View>
+
+         
+        <View style={style.textHeader1}>
+          <Text>Asa - R$ 13,96 / Kg </Text>
+          <Switch
+            trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
+            thumbColor={!isAsa ? '#fff' : '#ea1d2c'}
+            onValueChange={asa}
+            value={isAsa}
+          />
+        </View>
         <View style={style.container}>
           <Text> Essenciais </Text>
         </View>
@@ -322,36 +429,36 @@ export default function Home() {
           <Text>Fósforos - R$ 2,50 / Un </Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled7 ? '#fff' : '#ea1d2c'}
-            onValueChange={fósforos}
-            value={isEnabled7}
+            thumbColor={!isFosforos ? '#fff' : '#ea1d2c'}
+            onValueChange={fosforos}
+            value={isFosforos}
           />
         </View>
         <View style={style.textHeader1}>
           <Text>Sal grosso - R$ 4,50 / Kg</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled8 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isSal ? '#fff' : '#ea1d2c'}
             onValueChange={sal_grosso}
-            value={isEnabled8}
+            value={isSal}
           />
         </View>
         <View style={style.textHeader1}>
           <Text>Carvão - R$ 20,00 / 5Kg</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled9 ? '#fff' : '#ea1d2c'}
-            onValueChange={carvão}
-            value={isEnabled9}
+            thumbColor={!isCarvao ? '#fff' : '#ea1d2c'}
+            onValueChange={carvao}
+            value={isCarvao}
           />
         </View>
         <View style={style.textHeader1}>
           <Text>Gelo - R$ 10,00 / Un</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled10 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isGelo ? '#fff' : '#ea1d2c'}
             onValueChange={gelo}
-            value={isEnabled10}
+            value={isGelo}
           />
         </View>
 
@@ -363,27 +470,27 @@ export default function Home() {
           <Text>Arroz - R$ 4,50 / Kg</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled11 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isArroz ? '#fff' : '#ea1d2c'}
             onValueChange={arroz}
-            value={isEnabled11}
+            value={isArroz}
           />
         </View>
         <View style={style.textHeader1}>
           <Text>Farofa - R$ 6,50 / Kg</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled12 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isFarofa ? '#fff' : '#ea1d2c'}
             onValueChange={farofa}
-            value={isEnabled12}
+            value={isFarofa}
           />
         </View>
         <View style={style.textHeader1}>
           <Text>Pão francês - R$ 0,80 / un</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled13 ? '#fff' : '#ea1d2c'}
-            onValueChange={pão_francês}
-            value={isEnabled13}
+            thumbColor={!isPao ? '#fff' : '#ea1d2c'}
+            onValueChange={pao_frances}
+            value={isPao}
           />
         </View>
 
@@ -394,27 +501,27 @@ export default function Home() {
           <Text>Isca de peixe vegetal - R$ 43,00 / Kg</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled14 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isIscaPeixe ? '#fff' : '#ea1d2c'}
             onValueChange={isca_de_peixe_vegetal}
-            value={isEnabled14}
+            value={isIscaPeixe}
           />
         </View>
         <View style={style.textHeader1}>
           <Text>Kibe vegetal R$ 38,00 / Kg</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled15 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isKibe ? '#fff' : '#ea1d2c'}
             onValueChange={kibe_vegetal}
-            value={isEnabled15}
+            value={isKibe}
           />
         </View>
         <View style={style.textHeader1}>
           <Text> Hambúrguer vegetal - R$ 57,00 / Kg</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled16 ? '#fff' : '#ea1d2c'}
-            onValueChange={hambúrguer_vegetal}
-            value={isEnabled16}
+            thumbColor={!isHamburguerV ? '#fff' : '#ea1d2c'}
+            onValueChange={hamburguer_vegetal}
+            value={isHamburguerV}
           />
         </View>
 
@@ -426,27 +533,27 @@ export default function Home() {
           <Text>Skol lata - R$ 2,60 / un</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled17 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isSkol ? '#fff' : '#ea1d2c'}
             onValueChange={skol_lata}
-            value={isEnabled17}
+            value={isSkol}
           />
         </View>
         <View style={style.textHeader1}>
           <Text>Heineken lata - R$ 4,50 / un</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled18 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isHeineken ? '#fff' : '#ea1d2c'}
             onValueChange={heineken_lata}
-            value={isEnabled18}
+            value={isHeineken}
           />
         </View>
         <View style={style.textHeader1}>
           <Text>Jack Daniel's - R$ 140,00 / un</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled19 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isJack ? '#fff' : '#ea1d2c'}
             onValueChange={jack_Daniels}
-            value={isEnabled19}
+            value={isJack}
           />
         </View>
 
@@ -458,43 +565,56 @@ export default function Home() {
           <Text>Água 1,5l - R$ 2,75 / un</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled20 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isAgua ? '#fff' : '#ea1d2c'}
             onValueChange={agua}
-            value={isEnabled20}
+            value={isAgua}
           />
         </View>
         <View style={style.textHeader1}>
           <Text>Guaraná 2l - R$ 5,00 / un</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled21 ? '#fff' : '#ea1d2c'}
-            onValueChange={guaraná}
-            value={isEnabled21}
+            thumbColor={!isGuarana ? '#fff' : '#ea1d2c'}
+            onValueChange={guarana}
+            value={isGuarana}
           />
         </View>
         <View style={style.textHeader1}>
           <Text>Coca-cola 2l - R$ 7,00 / un</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled22 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isCoca_cola ? '#fff' : '#ea1d2c'}
             onValueChange={coca_cola}
-            value={isEnabled22}
+            value={isCoca_cola}
           />
         </View>
         <View style={style.textHeader1}>
           <Text>Suco 1l - R$ 4,80 /un</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isEnabled23 ? '#fff' : '#ea1d2c'}
+            thumbColor={!isSuco ? '#fff' : '#ea1d2c'}
             onValueChange={suco}
-            value={isEnabled23}
+            value={isSuco}
           />
         </View>
-        
+         <View style={style.container}>
+          <Text> Outros </Text>
+        </View>
+
+        <View style={style.textHeader1}>
+          <Text>Descartáveis- R$ 35,00 </Text>
+          <Switch
+            trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
+            thumbColor={!isDescartveis ? '#fff' : '#ea1d2c'}
+            onValueChange={descartavel}
+            value={isDescartveis}
+          />
+        </View>
+
         <TouchableOpacity
           style={style.buttonNext}
           onPress={() => {
-            guardarBanco()
+            guardarBanco();
           }}>
           <Icon name="arrow-right" size={20} color="#000" />
         </TouchableOpacity>
@@ -525,7 +645,7 @@ const style = StyleSheet.create({
     marginTop: 5,
   },
   principal: {
-    height: 1800,
+    height: 1890,
   },
   buttonNext: {
     position: 'absolute',
@@ -538,6 +658,5 @@ const style = StyleSheet.create({
     height: 60,
     borderRadius: 70,
     backgroundColor: '#EA1D2C',
-   
   },
 });

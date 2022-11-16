@@ -5,6 +5,9 @@ export const apiCEP = axios.create({
 });
 
 
-export const apiRUA = axios.create({
+const apiRUA = axios.create({
   baseURL: "https://discover.search.hereapi.com/v1/",
 });
+
+export default apiRUA;
+

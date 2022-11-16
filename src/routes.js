@@ -1,16 +1,18 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "./pages/Home/home.js";
+import Home from "./pages/home/home.js";
 import Convidados from "./pages/Convidados/convidados.js";
 import Lista from "./pages/Lista/lista.js";
 import Loja from "./pages/Loja/loja.js";
 import Mapa from "./pages/Mapa/mapa.js";
 import Icon from "react-native-vector-icons/FontAwesome";
+import Provider from "./context";
 
 const Tab = createBottomTabNavigator();
 
 function Routes() {
   return (
+    <Provider>
     <Tab.Navigator 
     initialRouteName="Home"
       screenOptions={{
@@ -89,6 +91,7 @@ function Routes() {
         }}
       />
     </Tab.Navigator>
+    </Provider>
   );
 }
 
