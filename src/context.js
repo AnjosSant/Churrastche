@@ -53,12 +53,21 @@ export default function Provider({ children }) {
     let essenciais = listarShop.filter((item) => item.tipo == "essenciais");
     let complementos = listarShop.filter((item) => item.tipo == "complementos");
     let vegetariano = listarShop.filter((item) => item.tipo == "vegetariano");
+
     let bebidas_alcoolicas = listarShop.filter(
       (item) => item.tipo == "bebidas_alcoolicas"
     );
     let bebidas_nao_alcoolicas = listarShop.filter(
       (item) => item.tipo == "bebidas_nao_alcoolicas"
     );
+
+    let tipoBebidaNaoAlcoolica = bebidas_nao_alcoolicas.map(
+      (item) => item.preco
+    );
+    let tipoBebidaAlcoolica = bebidas_alcoolicas.map((item) => item.preco);
+
+    console.log(tipoBebidaAlcoolica);
+
     let descartavel = listarShop.filter((item) => item.tipo == "descartavel");
 
     let Bebida = listarShop.filter((item) => item.Estado === true);
@@ -66,6 +75,10 @@ export default function Provider({ children }) {
     var tiposB = bovino;
     var tiposF = frango;
     var tiposS = suino;
+    var tipoAlcoolica = bebidas_alcoolicas;
+    var tipoNaoAlcoolica = bebidas_nao_alcoolicas;
+
+    console.log(quantidadeHomem);
 
     // CALCULO HOMEM
 
@@ -100,22 +113,43 @@ export default function Provider({ children }) {
       var qtdCriancaCarne = (data[0].carne.crianca.carne * numCrianca) / 1000;
       var qtdCriancaFrango = (data[0].carne.crianca.frango * numCrianca) / 1000;
       var qtdCriancaSuino = (data[0].carne.crianca.suino * numCrianca) / 1000;
+      var litrosCriancaRefri = numCrianca * data[2].bebidasCrianca.refrigerante.pessoa; // refri
+      var litrosCriancaSuco = numCrianca * data[2].bebidasCrianca.suco.pessoa; // suco
+      var litrosCriancaAgua = numCrianca * data[2].bebidasCrianca.agua.pessoa; // agua
     } else {
       qtdCriancaCarne = 0;
       qtdCriancaFrango = 0;
       qtdCriancaSuino = 0;
+      litrosCriancaRefri = 0;
+      litrosCriancaSuco = 0;
+      litrosCriancaAgua = 0;
     }
 
-    let litrosAdulto = (numHomens + numMulher) * 900;
-    let litrosCrianca =
-      (numCrianca * 450) /
-      Bebida.filter((item) => item.tipo != "bebidas_alcoolicas").length;
+    // calc bebida
+    var quantidadeTotalAdulto = numHomens + numMulher;
+
+    if (quantidadeTotalAdulto >= 1) {
+      var litrosAdultoRefri = (numHomens + numMulher) * data[1].bebidas.refrigerante.pessoa; //refri
+      var litrosAdultoSuco = (numHomens + numMulher) * data[1].bebidas.suco.pessoa; //suco
+      var litrosAdultoAgua = (numHomens + numMulher) * data[1].bebidas.agua.pessoa; //agua
+      var litrosAdultoAlcoolica = (numHomens + numMulher) * data[1].bebidas.alcoolicas.adulto; //alcoolica
+    } else {
+      litrosAdultoRefri = 0;
+      litrosAdultoSuco = 0;
+      litrosAdultoAgua      = 0;
+      litrosAdultoAlcoolica = 0;
+    }
+
+
+    // let litrosCrianca =
+    //   (numCrianca * 450) /
+    //   Bebida.filter((item) => item.tipo != "bebidas_alcoolicas").length;
     // let litrosCrianca = (numCrianca) * 450
 
-    let litrosTotal = litrosAdulto / Bebida.length;
-    litrosTotal += litrosCrianca;
-    litrosTotal = litrosTotal / 1000;
-    var litrosAlcool = litrosAdulto / 1000 / Bebida.length;
+    // let litrosTotal = litrosAdulto / Bebida.length;
+    // litrosTotal += litrosCrianca;
+    // litrosTotal = litrosTotal / 1000;
+    // var litrosAlcool = litrosAdulto / 1000 / Bebida.length;
 
     //VALIDACAO?
 
@@ -136,6 +170,27 @@ export default function Provider({ children }) {
     } else {
       suino = 1;
     }
+    if (bebidas_nao_alcoolicas.length > 0) {
+      suino = bebidas_nao_alcoolicas.length;
+    } else {
+      bebidas_nao_alcoolicas = 1;
+    }
+    if (bebidas_alcoolicas.length > 0) {
+      bebidas_alcoolicas = bebidas_alcoolicas.length;
+    } else {
+      bebidas_alcoolicas = 1;
+    }
+
+    //SOMA TOTAL BEBIDAS
+    var quantidadeBebidasAdulto = (litrosAdultoRefri + litrosAdultoSuco + litrosAdultoAgua + litrosAdultoAlcoolica) / bebidas_alcoolicas + bebidas_nao_alcoolicas;
+    var quantidadeBebidasCrianca = (litrosCriancaRefri + litrosCriancaSuco + litrosCriancaAgua ) / bebidas_nao_alcoolicas.length;
+
+    console.log(litrosCriancaAgua)
+    console.log(litrosCriancaSuco)
+    console.log(litrosCriancaRefri)
+    console.log(bebidas_nao_alcoolicas.length)
+
+    console.log(quantidadeBebidasCrianca)
 
     //SOMA TOTAL DAS CARNES
     var quantidadeCarne =
@@ -149,6 +204,10 @@ export default function Provider({ children }) {
     var precoTotalCarne = 0;
     var precoTotalFrango = 0;
     var precoTotalSuino = 0;
+
+    //preco total bebidas
+    var precoTotalBebidasNaoAlcolicas = 0;
+    var precoTotalBebidasAlcolicas = 0;
 
     for (let i = 0; i < tipos1.length; i++) {
       let resultado = (tipos1[i] * Number(quantidadeCarne.toFixed(2))) / bovino;
@@ -165,6 +224,17 @@ export default function Provider({ children }) {
       let resultado = (tipos3[i] * Number(quantidadeSuino.toFixed(2))) / suino;
       precoTotalSuino += resultado;
       Object.assign(tiposS[i], { total: resultado.toFixed(2) });
+    }
+    for (let i = 0; i < tipoBebidaNaoAlcoolica.length; i++) {
+      let resultado = (tipoBebidaNaoAlcoolica[i] * quantidadeBebidasCrianca) / bebidas_nao_alcoolicas.length;
+      precoTotalBebidasNaoAlcolicas += resultado;
+      Object.assign(tipoNaoAlcoolica[i], { total: (resultado.toFixed(2) / 1000 )});
+      console.log(resultado)
+    }
+    for (let i = 0; i < tipoBebidaAlcoolica.length; i++) {
+      let resultado = (tipoBebidaAlcoolica[i] * quantidadeBebidasAdulto.length) / bebidas_alcoolicas;
+      precoTotalBebidasAlcolicas += resultado;
+      Object.assign(tipoAlcoolica[i], { total: resultado.toFixed(2) });
     }
 
     var dataShop = [
@@ -190,6 +260,7 @@ export default function Provider({ children }) {
         tipos: tipos3,
       },
     ];
+    console.log(dataShop)
 
     return [dataShop, Bebida];
   };

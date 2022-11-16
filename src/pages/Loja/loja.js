@@ -20,26 +20,9 @@ export default function Home() {
   const [isPicanhaS, setisPicanhaS] = useState(false);
   const [isPernil, setisPernil] = useState(false);
   const [isLinguica, setisLinguica] = useState(false);
-
-
   const [isCoxa, setisCoxa] = useState(false);
   const [isCoracao, setisCoracao] = useState(false);
   const [isAsa, setisAsa] = useState(false);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   const [isFosforos, setisFosforos] = useState(false);
   const [isSal, setisSal] = useState(false);
   const [isCarvao, setisCarvao] = useState(false);
@@ -256,43 +239,43 @@ const asa = () => {
       Estado: isHamburguerV,
     },
     {
-      tipo: 'bebidas_alcoólicas',
+      tipo: 'bebidas_alcoolicas',
       nome: 'skol lat ',
       preco: 2.6,
       Estado: isSkol,
     },
     {
-      tipo: 'bebidas_alcoólicas',
+      tipo: 'bebidas_alcoolicas',
       nome: 'heineken lata ',
       preco: 4.5,
       Estado: isHeineken,
     },
     {
-      tipo: 'bebidas_alcoólicas',
+      tipo: 'bebidas_alcoolicas',
       nome: 'jack Daniels ',
       preco: 140,
       Estado: isJack,
     },
     {
-      tipo: 'bebidas_nao_alcoólicas',
+      tipo: 'bebidas_nao_alcoolicas',
       nome: 'agua ',
       preco: 2.75,
       Estado: isAgua,
     },
     {
-      tipo: 'bebidas_nao_alcoólicas',
+      tipo: 'bebidas_nao_alcoolicas',
       nome: 'guaraná ',
       preco: 5,
       Estado: isGuarana,
     },
     {
-      tipo: 'bebidas_nao_alcoólicas',
+      tipo: 'bebidas_nao_alcoolicas',
       nome: 'coca cola ',
       preco: 7,
       Estado: isCoca_cola,
     },
     {
-      tipo: 'bebidas_nao_alcoólicas',
+      tipo: 'bebidas_nao_alcoolicas',
       nome: 'suco ',
       preco: 4.8,
       Estado: isSuco,
@@ -548,7 +531,7 @@ const asa = () => {
           />
         </View>
         <View style={style.textHeader1}>
-          <Text>Jack Daniel's - R$ 140,00 / un</Text>
+          <Text>Jack Daniel's - R$ 140,00 / litro</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
             thumbColor={!isJack ? '#fff' : '#ea1d2c'}

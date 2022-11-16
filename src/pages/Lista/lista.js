@@ -33,7 +33,7 @@ console.log(dados)
  var carne = dados[0]
  var bebidas = dados[1]
 
- console.log(carne)
+ console.log(dados[0])
 
 
   return (
@@ -42,11 +42,6 @@ console.log(dados)
         <Header name="Resultado" />
         <View style={lista.cardHeader}><Text style={lista.text}>Lista de compra</Text></View>
         <View style={lista.CardBody}>
-          {carne.map((item) => (
-            <View>
-              <Text>{item.tipo}</Text>
-            </View>
-          ))}
         </View>
         <View style={lista.CardFooter}><Text style={lista.text}>Total</Text></View>
 
