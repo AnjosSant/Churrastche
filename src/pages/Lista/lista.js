@@ -42,29 +42,100 @@ export default function Geral() {
   console.log(listarShop);
   console.log(listarConvidados);
 
+
+  
   //BUSCAR CARNE
-  let carneB = listarShop.filter((item) => item.tipo == "bovino");
-  let carneF = listarShop.filter((item) => item.tipo == "frango");
-  let carneS = listarShop.filter((item) => item.tipo == "suino");
+  
+  if(dados.length != 0){
+    var carneB = listarShop.filter((item) => item.tipo == "bovino");
+    var carneF = listarShop.filter((item) => item.tipo == "frango");
+    var carneS = listarShop.filter((item) => item.tipo == "suino");
+    var carneKg = dados[0].map((item) => item.carnes);
+    var kgB = carneKg.filter((item) => item.tipo == "Carne Bovina");
+    var kgF = carneKg.filter((item) => item.tipo == "Carne Frango");
+    var kgS = carneKg.filter((item) => item.tipo == "Carne Suína");
 
-  var carneKg = dados[0].map((item) => item.carnes);
-  console.log(dados);
-  var kgB = carneKg.filter((item) => item.tipo == "Carne Bovina");
-  var kgF = carneKg.filter((item) => item.tipo == "Carne Frango");
-  var kgS = carneKg.filter((item) => item.tipo == "Carne Suína");
+    var essenciais = listarShop.filter((item) => item.tipo == "essenciais");
+    var fosforo = essenciais.filter((item) => item.nome == "Fósforos");
+    var carvao = dados[0].map((item) => item.outros);
+    var buscarCarvao = carvao.filter((item) => item.tipo == "essenciais");
+    var carvaoItems = essenciais.filter((item) => item.nome == "Carvão");
+    var qtdCarvao = carvaoItems.map((item) => item.nome);
+    var precoCarvaos = carvaoItems.map((item) => item.preco);
 
- 
 
-  console.log(dados);
-  //BUSCAR ESSENCIAIS
-  console.log(essenciais);
-  let essenciais = listarShop.filter((item) => item.tipo == "essenciais");
-  let fosforo = essenciais.filter((item) => item.nome == "Fósforos");
-  var carvao = dados[0].map((item) => item.outros);
-  var buscarCarvao = carvao.filter((item) => item.tipo == "essenciais");
-  var carvaoItems = essenciais.filter((item) => item.nome == "Carvão");
-  var qtdCarvao = carvaoItems.map((item) => item.nome);
-  var precoCarvaos = carvaoItems.map((item) => item.preco);
+
+    var bAlcoolicas = listarShop.filter(
+      (item) => item.tipo == "bebidas_alcoolicas"
+    );
+    var bNalcoolicas = listarShop.filter(
+      (item) => item.tipo == "bebidas_nao_alcoolicas"
+    );
+    console.log(bNalcoolicas);
+  
+    //KILOS TOTAL
+    var kilosTotal = (
+      Number(kgB.qtdTotal) +
+      Number(kgF.qtdTotal) +
+      Number(kgS.qtdTotal)
+    ).toFixed(2);
+    console.log(kilosTotal)
+
+    var somaTotalBovino = carneB.map((item) => item.total);
+    var somaB = 0;
+    for (let i = 0; i < somaTotalBovino.length; i++) {
+      somaB += Number(somaTotalBovino[i]);
+    }
+  
+    var somaTotalFrango = carneF.map((item) => item.total);
+    console.log(somaTotalFrango);
+    var somaF = 0;
+    for (let i = 0; i < somaTotalFrango.length; i++) {
+      somaF += Number(somaTotalFrango[i]);
+    }
+  
+    var somaTotalSuino = carneS.map((item) => item.total);
+    var somaS = 0;
+    for (let i = 0; i < somaTotalSuino.length; i++) {
+      somaS += Number(somaTotalSuino[i]);
+    }
+  
+    var somaFosforo = fosforo.map((item) => item.preco);
+  
+    var somaBAlcoolica = bAlcoolicas.map((item) => item.total);
+    var somaAlcoolica = 0;
+    for (let i = 0; i < somaBAlcoolica.length; i++) {
+      somaAlcoolica += Number(somaBAlcoolica[i]);
+    }
+    var somaNBalcoolica = bNalcoolicas.map((item) => item.latas);
+    var somaNalcoolica = 0;
+    for (let i = 0; i < somaNBalcoolica.length; i++) {
+      somaNalcoolica += Number(somaNBalcoolica[i]);
+      console.log(somaNBalcoolica[i])
+    }
+
+    var somaConvidados = listarConvidados.map((item) => item.quantidade) 
+
+    var somaC = 0;
+    for (let i = 0; i < somaConvidados.length; i++) {
+      somaC += Number(somaConvidados[i] );
+    }
+    var somaRateio = somaC - somaConvidados[2]
+    console.log(somaConvidados[0])
+    console.log(somaConvidados[1])
+    console.log(somaConvidados[2])
+    console.log(somaC)
+    console.log(somaRateio)
+    
+    //TOTAL CONTA
+    var totalItems =
+      somaB + somaF + somaS + Number(somaFosforo) + Number(precoCarvaos) + somaAlcoolica + somaNalcoolica;
+
+    var rateio = Math.ceil(totalItems / somaRateio);
+
+    var despesasCarne = somaB + somaF + somaS
+    var despesasBebida = somaAlcoolica + somaNalcoolica;
+  }
 
   // var quantidadeTotalCortes =
   //   quantidadeCarne + quantidadeSuino + quantidadeFrango;
@@ -79,61 +150,12 @@ export default function Geral() {
 
   //BUSCAR BEBIDAS
   //BEBIDAS ALCOOLICAS
-  var bAlcoolicas = listarShop.filter(
-    (item) => item.tipo == "bebidas_alcoolicas"
-  );
-  var bNalcoolicas = listarShop.filter(
-    (item) => item.tipo == "bebidas_nao_alcoolicas"
-  );
-  console.log(bNalcoolicas);
-
-  //KILOS TOTAL
-  let kilosTotal = (
-    Number(kgB.qtdTotal) +
-    Number(kgF.qtdTotal) +
-    Number(kgS.qtdTotal)
-  ).toFixed(2);
-  console.log(kilosTotal)
 
 
 
-  let somaTotalBovino = carneB.map((item) => item.total);
-  var somaB = 0;
-  for (let i = 0; i < somaTotalBovino.length; i++) {
-    somaB += Number(somaTotalBovino[i]);
-  }
-
-  let somaTotalFrango = carneF.map((item) => item.total);
-  console.log(somaTotalFrango);
-  var somaF = 0;
-  for (let i = 0; i < somaTotalFrango.length; i++) {
-    somaF += Number(somaTotalFrango[i]);
-  }
-
-  let somaTotalSuino = carneS.map((item) => item.total);
-  var somaS = 0;
-  for (let i = 0; i < somaTotalSuino.length; i++) {
-    somaS += Number(somaTotalSuino[i]);
-  }
-
-  let somaFosforo = fosforo.map((item) => item.preco);
-
-  let somaBAlcoolica = bAlcoolicas.map((item) => item.total);
-  console.log(somaBAlcoolica)
-  var somaAlcoolica = 0;
-  for (let i = 0; i < somaBAlcoolica.length; i++) {
-    somaAlcoolica += Number(somaBAlcoolica[i]);
-  }
 
 
-  //TOTAL CONTA
-  let totalItems =
-    somaB + somaF + somaS + Number(somaFosforo) + Number(precoCarvaos) + somaAlcoolica;
 
-  console.log(somaB.toFixed(2));
-  console.log(somaF.toFixed(2));
-  console.log(somaS.toFixed(2));
-  console.log(carneKg.map((item) => item.carnes));
 
   // console.log(listarShop.filter((item) => item.tipo == "bovino"))
 
@@ -227,7 +249,7 @@ export default function Geral() {
               ))}
               {bNalcoolicas.map((item) => (
                 <View>
-                  <Text style={lista.tamanho}>{item.latas} un</Text>
+                  <Text style={lista.tamanho}>{item.total} L</Text>
                 </View>
               ))}
             </View>
@@ -268,7 +290,7 @@ export default function Geral() {
               ))}
                {bNalcoolicas.map((item) => (
                 <View>
-                  <Text style={lista.tamanho}>R${item.total}</Text>
+                  <Text style={lista.tamanho}>R${item.latas}</Text>
                 </View>
               ))}
           </View>
@@ -285,10 +307,30 @@ export default function Geral() {
           <Text style={resumo.text}>Lista de despesas</Text>
         </View>
         <View style={resumo.CardBody}>
-          <SafeAreaView style={resumo.despesas}></SafeAreaView>
+          <SafeAreaView style={resumo.despesas}>
+            <View style={resumo.organizacao}>
+            <View>
+              <Text style={resumo.tamanho}>Despesas Com Carne</Text>
+            </View>
+            <View>
+              <Text style={resumo.tamanho}>R${`${(despesasCarne).toFixed(2)}`}</Text>
+            </View>
+            </View>
+
+            <View style={resumo.organizacao}>
+            <View>
+              <Text style={resumo.tamanho}>Despesas Com Bebidas</Text>
+            </View>
+            <View>
+              <Text style={resumo.tamanho}>R${`${(despesasBebida).toFixed(2)}`}</Text>
+            </View>
+            </View>
+
+          </SafeAreaView>
         </View>
         <View style={resumo.CardFooter}>
           <Text style={resumo.text}>Custo por pagante</Text>
+          <Text style={lista.total}>R${`${rateio}`}</Text>
         </View>
         </ScrollView>
       </ScrollView>
@@ -405,9 +447,23 @@ const resumo = StyleSheet.create({
     marginLeft: "auto",
     marginRight: "auto",
     marginTop: 15,
-    justifyContent: "center",
+    flexDirection: 'row',
+    justifyContent: "space-between",
   },
   text: {
     color: "#000000",
+  },
+  despesas:{
+    flexDirection: "column",
+
+  },
+  tamanho: {
+    fontSize: 12,
+    paddingBottom: 10,
+    fontFamily: "Poppins_400Regular",
+  },
+  organizacao: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });

@@ -219,9 +219,11 @@ export default function Provider({ children }) {
 
     //SOMA TOTAL BEBIDAS
     var quantidadeBebidasAdulto =
-      ((litrosAdultoRefri + litrosAdultoSuco + litrosAdultoAgua) /1000 ) / bebidas_nao_alcoolicas.length;
+      ((litrosAdultoRefri + litrosAdultoSuco + litrosAdultoAgua)/ 1000) / bebidas_nao_alcoolicas.length;
     var quantidadeBebidasCrianca =
       ((litrosCriancaRefri + litrosCriancaSuco + litrosCriancaAgua) /1000 )/bebidas_nao_alcoolicas.length;
+
+      console.log(quantidadeBebidasAdulto)
 
     let qtdLitroAlcoolica = (litrosAdultoAlcoolica )/ 1000;
     let qtdLitroNaoAlcoolica = (quantidadeBebidasAdulto + quantidadeBebidasCrianca) /1000
@@ -323,7 +325,7 @@ export default function Provider({ children }) {
       Object.assign(tipoNaoAlcoolica[i], {
         latas: Math.ceil((quantidadeBebidasCrianca + quantidadeBebidasAdulto)/ bebidas_nao_alcoolicas.length),
       });
-      console.log(resultado.toFixed(2));
+      console.log((Math.ceil((quantidadeBebidasCrianca + quantidadeBebidasAdulto)/ bebidas_nao_alcoolicas.length) / tipoBebidaNaoAlcoolica[i]).toFixed(2));
     }
     console.log(quantidadeCarne);
 
