@@ -23,17 +23,17 @@ export const data = [
       bebidas: {
         // (ml)
         refrigerante: {
-          pessoa: 900,
+          pessoa: 1500,
         },
         suco: {
           pessoa: 900,
         },
         alcoolicas: {
-          adulto: 400,
+          adulto: 900,
           
         },
         agua: {
-          pessoa: 400,
+          pessoa: 800,
         },
       },
     },
@@ -41,18 +41,18 @@ export const data = [
       bebidasCrianca: {
         // (ml)
         refrigerante: {
-          pessoa: 750,
+          pessoa: 1000,
         },
         suco: {
-          pessoa: 500,
+          pessoa: 800,
         },
         agua: {
-          pessoa: 200,
+          pessoa: 700,
         },
       },
     },
     {
-      consumo: {
+      outros: {
         // (g)
         arroz: {
           adulto: 100,

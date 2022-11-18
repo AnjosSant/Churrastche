@@ -135,7 +135,7 @@ export default function Home() {
               ref={video2}
               style={styles.video}
               source={{
-                uri: 'https://videosreceitas.s3.amazonaws.com/PICANHA+NA+GRELHA+POR+%40J%C3%BAlia+Carvalho+-+Cozinha+e+Churrasco.mp4',
+                uri: 'https://videosreceitas.s3.amazonaws.com/PICANHA+NA+GRELHA+POR+%40Júlia+Carvalho+-+Cozinha+e+Churrasco.mp4',
               }}
               useNativeControls
               resizeMode="contain"
@@ -163,7 +163,7 @@ export default function Home() {
               ref={video3}
               style={styles.video}
               source={{
-                uri: 'https://videosreceitas.s3.amazonaws.com/A+MAMINHA+COMBINOU+MUITO+COM+O+MILHO+CREMOSO+DE+QUEIJO+E+BACON!.mp4',
+                uri: 'https://videosreceitas.s3.amazonaws.com/A+MAMINHA+COMBINOU+MUITO+COM+O+MILHO+CREMOSO+DE+QUEIJO+E+BACON.mp4',
               }}
               useNativeControls
               resizeMode="contain"
@@ -219,7 +219,7 @@ export default function Home() {
               ref={video5}
               style={styles.video}
               source={{
-                uri: 'https://videosreceitas.s3.amazonaws.com/LINGUI%C3%87A+RECHEADA+COM+PASTA+DE+ALHO+NA+CHURRASQUEIRA++Receitas+de+Churrasco.mp4',
+                uri: 'https://videosreceitas.s3.amazonaws.com/LINGUIÇA+RECHEADA+COM+PASTA+DE+ALHO+NA+CHURRASQUEIRA+_+Receitas+de+Churrasco+_+Swift.mp4',
               }}
               useNativeControls
               resizeMode="contain"
@@ -247,7 +247,7 @@ export default function Home() {
               ref={video6}
               style={styles.video}
               source={{
-                uri: 'https://videosreceitas.s3.amazonaws.com/SOBRECOXA+AO+CHIMICHURRI+ACOMPANHADA+DE+BR%C3%93COLIS+COM+LIM%C3%83O+SICILIANO.mp4',
+                uri: 'https://videosreceitas.s3.amazonaws.com/SOBRECOXA+AO+CHIMICHURRI+ACOMPANHADA+DE+BRÓCOLIS+COM+LIMÃO+SICILIANO+_+Especial+Dia+dos+Pais+_+Swift.mp4',
               }}
               useNativeControls
               resizeMode="contain"
@@ -258,7 +258,7 @@ export default function Home() {
           <View style={styles.videoCard}>
             <View style={styles.textCard}>
               <Text style={styles.textVideo}>
-                COMO FAZER CHURRASCO DE FRUTOS DO MAR!!
+                O MELHOR SANDUBA DE CORAÇÃO COM QUEIJO!!
               </Text>
             </View>
             <View
@@ -275,7 +275,7 @@ export default function Home() {
               ref={video7}
               style={styles.video}
               source={{
-                uri: 'https://videosreceitas.s3.amazonaws.com/COMO+FAZER+CHURRASCO+DE+FRUTOS+DO+MAR.mp4',
+                uri: 'https://videosreceitas.s3.amazonaws.com/O+MELHOR+SANDUBA+DE+CORAÇÃO+COM+QUEIJO!!+_+Receitas+de+Churrasco+_+Swift.mp4',
               }}
               useNativeControls
               resizeMode="contain"

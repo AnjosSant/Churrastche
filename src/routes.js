@@ -1,10 +1,10 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "./pages/home/home.js";
-import Convidados from "./pages/Convidados/convidados.js";
-import Lista from "./pages/Lista/lista.js";
-import Loja from "./pages/Loja/loja.js";
-import Mapa from "./pages/Mapa/mapa.js";
+import Home from "../src/pages/Home/home";
+import Convidados from "../src/pages/Convidados/convidados";
+import Lista from "../src/pages/Lista/lista";
+import Loja from "../src/pages/Loja/loja";
+import Mapa from "../src/pages/Mapa/mapa";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Provider from "./context";
 

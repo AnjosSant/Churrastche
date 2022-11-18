@@ -35,7 +35,7 @@ export default function Home() {
   const [isHamburguerV, setisHamburguerV] = useState(false);
   const [isSkol, setisSkol] = useState(false);
   const [isHeineken, setisHeineken] = useState(false);
-  const [isJack, setisJack] = useState(false);
+  const [isBrahma, setisBrahma] = useState(false);
   const [isAgua, setisAgua] = useState(false);
   const [isGuarana, setisGuarana] = useState(false);
   const [isCoca_cola, setisCoca_cola] = useState(false);
@@ -105,8 +105,8 @@ const asa = () => {
   const heineken_lata = () => {
     setisHeineken((previousState) => !previousState);
   };
-  const jack_Daniels = () => {
-    setisJack((previousState) => !previousState);
+  const brahma = () => {
+    setisBrahma((previousState) => !previousState);
   };
   const agua = () => {
     setisAgua((previousState) => !previousState);
@@ -126,7 +126,7 @@ const asa = () => {
   const dataCortes = [
     {
       tipo: 'bovino',
-      nome: 'Picanha_Angus',
+      nome: 'Picanha Angus',
       preco: 98,
       Estado: isPicanhaA,
     },
@@ -138,7 +138,7 @@ const asa = () => {
     },
     {
       tipo: 'bovino',
-      nome: 'maminha',
+      nome: 'Maminha',
       preco: 49,
       Estado: ismaminha,
     },
@@ -156,133 +156,133 @@ const asa = () => {
     },
     {
       tipo: 'suino',
-      nome: 'linguica',
+      nome: 'Linguiça',
       preco: 16,
       Estado: isLinguica,
     },
     {
       tipo : 'frango',
-      nomo : 'coxa',
+      nome : 'Coxa',
       preco : 13.98,
       Estado : isCoxa
     },
     {
       tipo : 'frango',
-      nomo : 'coracao',
+      nome : 'Coração',
       preco : 25.46,
       Estado : isCoracao
     },
     {
       tipo : 'frango',
-      nomo : 'asa',
+      nome : 'Asa',
       preco : 13.96,
       Estado : isAsa
     },
     {
       tipo: 'essenciais',
-      nome: 'fósforos',
+      nome: 'Fósforos',
       preco: 2.5,
       Estado: isFosforos,
     },
     {
       tipo: 'essenciais',
-      nome: 'sal grosso',
-      preco: 4.5,
-      Estado: isSal,
-    },
-    {
-      tipo: 'essenciais',
-      nome: ' carvão',
+      nome: 'Carvão',
       preco: 20,
       Estado: isCarvao,
     },
     {
       tipo: 'essenciais',
-      nome: ' gelo',
+      nome: 'Sal grosso',
+      preco: 4.5,
+      Estado: isSal,
+    },
+    {
+      tipo: 'essenciais',
+      nome: ' Gelo',
       preco: 10,
       Estado: isGelo,
     },
     {
       tipo: 'complementos',
-      nome: ' arroz',
+      nome: ' Arroz',
       preco: 4.5,
       Estado: isArroz,
     },
     {
       tipo: 'complementos',
-      nome: ' farofa',
+      nome: ' Farofa',
       preco: 6.5,
       Estado: isFarofa,
     },
     {
       tipo: 'complementos',
-      nome: ' pão francês',
+      nome: ' Pão francês',
       preco: 6.5,
       Estado: isPao,
     },
     {
       tipo: 'vegetariano',
-      nome: ' isca_de_peixe_vegetal',
+      nome: ' Isca de peixe vegetal',
       preco: 43,
       Estado: isIscaPeixe,
     },
     {
       tipo: 'vegetariano',
-      nome: 'kibe vegetal ',
+      nome: 'Kibe vegetal ',
       preco: 38,
       Estado: isKibe,
     },
     {
       tipo: 'vegetariano',
-      nome: 'hambúrguer vegetal ',
+      nome: 'Hambúrguer vegetal ',
       preco: 57,
       Estado: isHamburguerV,
     },
     {
       tipo: 'bebidas_alcoolicas',
-      nome: 'skol lat ',
+      nome: 'Skol lata',
       preco: 2.6,
       Estado: isSkol,
     },
     {
       tipo: 'bebidas_alcoolicas',
-      nome: 'heineken lata ',
+      nome: 'Heineken lata ',
       preco: 4.5,
       Estado: isHeineken,
     },
     {
       tipo: 'bebidas_alcoolicas',
-      nome: 'jack Daniels ',
-      preco: 140,
-      Estado: isJack,
+      nome: 'Brahma',
+      preco: 3.60,
+      Estado: isBrahma,
     },
     {
       tipo: 'bebidas_nao_alcoolicas',
-      nome: 'agua ',
+      nome: 'Água',
       preco: 2.75,
       Estado: isAgua,
     },
     {
       tipo: 'bebidas_nao_alcoolicas',
-      nome: 'guaraná ',
+      nome: 'Guaraná',
       preco: 5,
       Estado: isGuarana,
     },
     {
       tipo: 'bebidas_nao_alcoolicas',
-      nome: 'coca cola ',
+      nome: 'Coca cola',
       preco: 7,
       Estado: isCoca_cola,
     },
     {
       tipo: 'bebidas_nao_alcoolicas',
-      nome: 'suco ',
+      nome: 'Suco',
       preco: 4.8,
       Estado: isSuco,
     },
     {
       tipo: 'descartavel',
-      nome: 'descartavel ',
+      nome: 'Descartavel ',
       preco: 35,
       Estado: isDescartveis,
     },
@@ -531,12 +531,12 @@ const asa = () => {
           />
         </View>
         <View style={style.textHeader1}>
-          <Text>Jack Daniel's - R$ 140,00 / litro</Text>
+          <Text>Brahma Puro Malte - R$ 3,60 / un</Text>
           <Switch
             trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isJack ? '#fff' : '#ea1d2c'}
-            onValueChange={jack_Daniels}
-            value={isJack}
+            thumbColor={!isBrahma ? '#fff' : '#ea1d2c'}
+            onValueChange={brahma}
+            value={isBrahma}
           />
         </View>
 
