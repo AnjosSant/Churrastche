@@ -30,7 +30,7 @@ export default function Convidados() {
     { sexo: 'homem', quantidade: Number(qnth.toFixed(0)) },
     { sexo: 'crianca', quantidade: Number(qntc.toFixed(0)) },
     { horas: 'horastotal', quantidade: Number(horas.toFixed(0)) },
-    { localevento: 'precolocal', quantidade: Number(local.toFixed(0)) },
+    { localevento: 'Preço local', quantidade: Number(local.toFixed(0)) },
   ];
 
   const guardarBanco = () => {

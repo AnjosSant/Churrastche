@@ -47,6 +47,15 @@ export default function Geral() {
   //BUSCAR CARNE
   
   if(dados.length != 0){
+
+
+    var qtdLocacao = listarConvidados.filter((item) => item.localevento == "Preço local")
+    var precoLocacao = qtdLocacao.map((item) => item.quantidade)
+    console.log(qtdLocacao);
+    console.log(precoLocacao);
+
+
+
     var carneB = listarShop.filter((item) => item.tipo == "bovino");
     var carneF = listarShop.filter((item) => item.tipo == "frango");
     var carneS = listarShop.filter((item) => item.tipo == "suino");
@@ -57,11 +66,15 @@ export default function Geral() {
 
     var essenciais = listarShop.filter((item) => item.tipo == "essenciais");
     var fosforo = essenciais.filter((item) => item.nome == "Fósforos");
-    var carvao = dados[0].map((item) => item.outros);
-    var buscarCarvao = carvao.filter((item) => item.tipo == "essenciais");
+    var outros = dados[0].map((item) => item.outros);
+    var buscarCarvao = outros.map((item) => item.carvao);
+    var precoCarvaos = buscarCarvao.map((item) => item.preco);
+    var sal = outros.map((item) => item.sal);
+    var precoSal = sal.map((item) => item.precoSal);
+
     var carvaoItems = essenciais.filter((item) => item.nome == "Carvão");
     var qtdCarvao = carvaoItems.map((item) => item.nome);
-    var precoCarvaos = carvaoItems.map((item) => item.preco);
+    console.log(sal);
 
 
 
@@ -71,7 +84,6 @@ export default function Geral() {
     var bNalcoolicas = listarShop.filter(
       (item) => item.tipo == "bebidas_nao_alcoolicas"
     );
-    console.log(bNalcoolicas);
   
     //KILOS TOTAL
     var kilosTotal = (
@@ -120,19 +132,17 @@ export default function Geral() {
     for (let i = 0; i < somaConvidados.length; i++) {
       somaC += Number(somaConvidados[i] );
     }
-    var somaRateio = somaC - somaConvidados[2]
-    console.log(somaConvidados[0])
-    console.log(somaConvidados[1])
-    console.log(somaConvidados[2])
-    console.log(somaC)
-    console.log(somaRateio)
+    var somaRateio = somaC - somaConvidados[2] - somaConvidados[4]
+
+
+
     
     //TOTAL CONTA
     var totalItems =
-      somaB + somaF + somaS + Number(somaFosforo) + Number(precoCarvaos) + somaAlcoolica + somaNalcoolica;
+      somaB + somaF + somaS + Number(somaFosforo) + Number(precoCarvaos) + somaAlcoolica + somaNalcoolica + Number(precoSal) + Number(precoLocacao);
 
     var rateio = Math.ceil(totalItems / somaRateio);
-
+    console.log(somaRateio)
     var despesasCarne = somaB + somaF + somaS
     var despesasBebida = somaAlcoolica + somaNalcoolica;
   }
@@ -201,6 +211,11 @@ export default function Geral() {
                   <Text style={lista.tamanho}>{item.nome}</Text>
                 </View>
               ))}
+              {qtdLocacao.map((item) => (
+                <View>
+                  <Text style={lista.tamanho}>{item.localevento}</Text>
+                </View>
+              ))}
             </View>
 
             {/* Quantidade de CArne */}
@@ -227,21 +242,16 @@ export default function Geral() {
                   <Text style={lista.tamanho}>{fosforo.length} un</Text>
                 </View>
               ))}
-              {carvaoItems.map((item) => (
-                <View>
-                  <Text style={lista.tamanho}>{item.preco} un</Text>
-                </View>
-              ))}
-              {/* {fosforo.map((item) => (
-                <View>
-                  <Text style={lista.tamanho}>{fosforo.length} un</Text>
-                </View>
-              ))}
-              {carvaoItems.map((item) => (
+              {buscarCarvao.map((item) => (
                 <View>
                   <Text style={lista.tamanho}>{item.qtdSaco} un</Text>
                 </View>
-              ))} */}
+              ))} 
+              {sal.map((item) => (
+                <View>
+                  <Text style={lista.tamanho}>{item.qtdSaco} un</Text>
+                </View>
+              ))} 
               {bAlcoolicas.map((item) => (
                 <View>
                   <Text style={lista.tamanho}>{item.latas} un</Text>
@@ -278,9 +288,14 @@ export default function Geral() {
                   <Text style={lista.tamanho}>R${item.preco.toFixed(2)}</Text>
                 </View>
               ))}
-              {carvaoItems.map((item) => (
+              {buscarCarvao.map((item) => (
                 <View>
-                  <Text style={lista.tamanho}>R${(item.preco) * precoCarvaos}</Text>
+                  <Text style={lista.tamanho}>R${item.preco}</Text>
+                </View>
+              ))}
+              {sal.map((item) => (
+                <View>
+                  <Text style={lista.tamanho}>R${item.preco}</Text>
                 </View>
               ))}
                {bAlcoolicas.map((item) => (
@@ -291,6 +306,11 @@ export default function Geral() {
                {bNalcoolicas.map((item) => (
                 <View>
                   <Text style={lista.tamanho}>R${item.latas}</Text>
+                </View>
+              ))}
+              {qtdLocacao.map((item) => (
+                <View>
+                  <Text style={lista.tamanho}>R${item.quantidade}</Text>
                 </View>
               ))}
           </View>
@@ -323,6 +343,15 @@ export default function Geral() {
             </View>
             <View>
               <Text style={resumo.tamanho}>R${`${(despesasBebida).toFixed(2)}`}</Text>
+            </View>
+            </View>
+
+            <View style={resumo.organizacao}>
+            <View>
+              <Text style={resumo.tamanho}>Despesas Com Locação</Text>
+            </View>
+            <View>
+              <Text style={resumo.tamanho}>R${`${precoLocacao}`}</Text>
             </View>
             </View>
 

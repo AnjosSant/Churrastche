@@ -54,6 +54,10 @@ export default function Provider({ children }) {
     let complementos = listarShop.filter((item) => item.tipo == "complementos");
     let vegetariano = listarShop.filter((item) => item.tipo == "vegetariano");
 
+    console.log(frango)
+
+
+
     let bebidas_alcoolicas = listarShop.filter(
       (item) => item.tipo == "bebidas_alcoolicas"
     );
@@ -254,20 +258,21 @@ export default function Provider({ children }) {
 
     let kgCarvao = quantidadeTotalCortes.toFixed(2);
     let sacoCarvao = Math.ceil(kgCarvao / 3);
-    let precoCarvao = sacoCarvao * 20;
+    let precoCarvao = sacoCarvao * 20.25;
     console.log(kgCarvao);
     console.log(sacoCarvao);
 
     let sal = quantidadeTotalCortes * 0.02;
+    let sacoSal = Math.ceil(sal * 4.5);
+    let precoSal = sacoSal * 4.5;
     // let fosforo =
-    let sacoSal = sal * 4.5;
     let pao = totalPessoas * 2 * 50;
     let arroz = totalPessoas * 100;
     let sacoArroz = Math.ceil(arroz / 5);
     let farofa = totalPessoas * 70;
     let sacoFarofa = Math.ceil(farofa / 0.5);
 
-    console.log(sacoSal);
+    console.log(precoSal);
 
     console.log(sacoCarvao);
 
@@ -285,16 +290,16 @@ export default function Provider({ children }) {
       precoTotalCarne += resultado;
       Object.assign(tiposB[i], { total: resultado.toFixed(2) });
       Object.assign(tiposB[i], {
-        qtdpBovino: Math.ceil(quantidadeCarne.toFixed(2) / bovino).toFixed(2),
+        qtdpBovino: (quantidadeCarne.toFixed(2) / bovino).toFixed(2),
       });
     }
     for (let i = 0; i < tipos2.length; i++) {
       let resultado =
-        (tipos2[i] * Number(quantidadeFrango.toFixed(2))) / frango;
+        (tipos2[i] *( Number(quantidadeFrango.toFixed(2))) / frango);
       precoTotalFrango += resultado;
       Object.assign(tiposF[i], { total: resultado.toFixed(2) });
       Object.assign(tiposF[i], {
-        qtdpFrango: Math.ceil(quantidadeFrango.toFixed(2) / frango).toFixed(2),
+        qtdpFrango: (quantidadeFrango.toFixed(2) / frango).toFixed(2),
       });
     }
     for (let i = 0; i < tipos3.length; i++) {
@@ -302,14 +307,14 @@ export default function Provider({ children }) {
       precoTotalSuino += resultado;
       Object.assign(tiposS[i], { total: resultado.toFixed(2) });
       Object.assign(tiposS[i], {
-        qtdpSuino: Math.ceil(quantidadeSuino.toFixed(2) / suino).toFixed(2),
+        qtdpSuino: (quantidadeSuino.toFixed(2) / suino.toFixed(2)).toFixed(2),
       });
     }
     for (let i = 0; i < tipoBebidaAlcoolica.length; i++) {
       let resultado =
         (tipoBebidaAlcoolica[i] * quantidadeBebidasAdulto) / bebidas_alcoolicas;
       precoTotalBebidasAlcolicas += resultado;
-      Object.assign(tipoAlcoolica[i], { total: (Math.ceil(qtdLitroAlcoolica / bebidas_alcoolicas)) * tipoBebidaAlcoolica[i]  });
+      Object.assign(tipoAlcoolica[i], { total: ((Math.ceil(qtdLitroAlcoolica / bebidas_alcoolicas)) * tipoBebidaAlcoolica[i] ).toFixed(2) });
       Object.assign(tipoAlcoolica[i], {
         latas: (Math.ceil(qtdLitroAlcoolica / bebidas_alcoolicas)),
       });
@@ -379,10 +384,19 @@ export default function Provider({ children }) {
             preco: precoCarvao,
             qtdSaco: sacoCarvao,
           },
+          sal: {
+            id: 1,
+            tipo: "essenciais",
+            nome: "Sal",
+            qtdTotal: sal,
+            preco: precoSal,
+            qtdSaco: sacoSal,
+          },
         },
       },
     ];
     console.log(Bebida);
+    console.log(sacoCarvao);
     return [dataShop, items];
   };
 

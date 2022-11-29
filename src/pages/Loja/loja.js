@@ -26,13 +26,6 @@ export default function Home() {
   const [isFosforos, setisFosforos] = useState(false);
   const [isSal, setisSal] = useState(false);
   const [isCarvao, setisCarvao] = useState(false);
-  const [isGelo, setisGelo] = useState(false);
-  const [isArroz, setisArroz] = useState(false);
-  const [isFarofa, setisFarofa] = useState(false);
-  const [isPao, setisPao] = useState(false);
-  const [isIscaPeixe, setisIscaPeixe] = useState(false);
-  const [isKibe, setisKibe] = useState(false);
-  const [isHamburguerV, setisHamburguerV] = useState(false);
   const [isSkol, setisSkol] = useState(false);
   const [isHeineken, setisHeineken] = useState(false);
   const [isBrahma, setisBrahma] = useState(false);
@@ -77,27 +70,6 @@ const asa = () => {
   };
   const carvao = () => {
     setisCarvao((previousState) => !previousState);
-  };
-  const gelo = () => {
-    setisGelo((previousState) => !previousState);
-  };
-  const arroz = () => {
-    setisArroz((previousState) => !previousState);
-  };
-  const farofa = () => {
-    setisFarofa((previousState) => !previousState);
-  };
-  const pao_frances = () => {
-    setisPao((previousState) => !previousState);
-  };
-  const isca_de_peixe_vegetal = () => {
-    setisIscaPeixe((previousState) => !previousState);
-  };
-  const kibe_vegetal = () => {
-    setisKibe((previousState) => !previousState);
-  };
-  const hamburguer_vegetal = () => {
-    setisHamburguerV((previousState) => !previousState);
   };
   const skol_lata = () => {
     setisSkol((previousState) => !previousState);
@@ -195,48 +167,6 @@ const asa = () => {
       nome: 'Sal grosso',
       preco: 4.5,
       Estado: isSal,
-    },
-    {
-      tipo: 'essenciais',
-      nome: ' Gelo',
-      preco: 10,
-      Estado: isGelo,
-    },
-    {
-      tipo: 'complementos',
-      nome: ' Arroz',
-      preco: 4.5,
-      Estado: isArroz,
-    },
-    {
-      tipo: 'complementos',
-      nome: ' Farofa',
-      preco: 6.5,
-      Estado: isFarofa,
-    },
-    {
-      tipo: 'complementos',
-      nome: ' Pão francês',
-      preco: 6.5,
-      Estado: isPao,
-    },
-    {
-      tipo: 'vegetariano',
-      nome: ' Isca de peixe vegetal',
-      preco: 43,
-      Estado: isIscaPeixe,
-    },
-    {
-      tipo: 'vegetariano',
-      nome: 'Kibe vegetal ',
-      preco: 38,
-      Estado: isKibe,
-    },
-    {
-      tipo: 'vegetariano',
-      nome: 'Hambúrguer vegetal ',
-      preco: 57,
-      Estado: isHamburguerV,
     },
     {
       tipo: 'bebidas_alcoolicas',
@@ -372,7 +302,7 @@ const asa = () => {
           />
         </View>
     
-        <View style={style.container}><Text>frango</Text></View>
+        <View style={style.container}><Text>Frango</Text></View>
 
         <View style={style.textHeader1}>
           <Text> Coxa - R$ 13,98 / Kg </Text>
@@ -435,79 +365,6 @@ const asa = () => {
             value={isCarvao}
           />
         </View>
-        <View style={style.textHeader1}>
-          <Text>Gelo - R$ 10,00 / Un</Text>
-          <Switch
-            trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isGelo ? '#fff' : '#ea1d2c'}
-            onValueChange={gelo}
-            value={isGelo}
-          />
-        </View>
-
-        <View style={style.container}>
-          <Text> Complementos </Text>
-        </View>
-
-        <View style={style.textHeader1}>
-          <Text>Arroz - R$ 4,50 / Kg</Text>
-          <Switch
-            trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isArroz ? '#fff' : '#ea1d2c'}
-            onValueChange={arroz}
-            value={isArroz}
-          />
-        </View>
-        <View style={style.textHeader1}>
-          <Text>Farofa - R$ 6,50 / Kg</Text>
-          <Switch
-            trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isFarofa ? '#fff' : '#ea1d2c'}
-            onValueChange={farofa}
-            value={isFarofa}
-          />
-        </View>
-        <View style={style.textHeader1}>
-          <Text>Pão francês - R$ 0,80 / un</Text>
-          <Switch
-            trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isPao ? '#fff' : '#ea1d2c'}
-            onValueChange={pao_frances}
-            value={isPao}
-          />
-        </View>
-
-        <View style={style.container}>
-          <Text> Vegetariano </Text>
-        </View>
-        <View style={style.textHeader1}>
-          <Text>Isca de peixe vegetal - R$ 43,00 / Kg</Text>
-          <Switch
-            trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isIscaPeixe ? '#fff' : '#ea1d2c'}
-            onValueChange={isca_de_peixe_vegetal}
-            value={isIscaPeixe}
-          />
-        </View>
-        <View style={style.textHeader1}>
-          <Text>Kibe vegetal R$ 38,00 / Kg</Text>
-          <Switch
-            trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isKibe ? '#fff' : '#ea1d2c'}
-            onValueChange={kibe_vegetal}
-            value={isKibe}
-          />
-        </View>
-        <View style={style.textHeader1}>
-          <Text> Hambúrguer vegetal - R$ 57,00 / Kg</Text>
-          <Switch
-            trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isHamburguerV ? '#fff' : '#ea1d2c'}
-            onValueChange={hamburguer_vegetal}
-            value={isHamburguerV}
-          />
-        </View>
-
         <View style={style.container}>
           <Text> Bebidas alcoólicas </Text>
         </View>
