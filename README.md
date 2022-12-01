@@ -72,9 +72,9 @@ Aqui estão as tecnologias usadas nesse projeto
 
 ### 5 - Por fim,  voce sera redirecionado para a pagina da lista, onde voce vai ver o resultado final, que vai estar calculando tudo e te retornara o preço que voce vai gastar aproximadamente.
 
-![midia_image1](https://github.com/AnjosSant/Churrastche/blob/src/img_readme/lista.jpeg)
-![midia_image2](https://github.com/AnjosSant/Churrastche/blob/src/img_readme/lista2.jpeg)
-![midia_image2](https://github.com/AnjosSant/Churrastche/blob/src/img_readme/lista3.jpeg)
+![midia_image1](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/lista.jpeg)
+![midia_image2](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/lista2.jpeg)
+![midia_image2](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/lista3.jpeg)
 
 
 ## Links
