@@ -55,8 +55,8 @@ Aqui estão as tecnologias usadas nesse projeto
 
 ### 2 - Após isso, voce vai para a pagina de convidados, onde voce seleciona a quantidade de pessoas, quantas horas vai ser seu churrasco e o preço do lugar(caso voce alugue um).
 
-![Mensagens](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/convidados.jpeg)
-![Mensagens](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/convidados2.jpeg)
+![Mensagens](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/convidados.jpeg)
+![Mensagens](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/convidados2.jpeg)
 
 ### 3 - Após isso, voce vai selecionar oque voce vai comer no seu churrasco.
 
