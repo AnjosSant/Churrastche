@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=52U9RemTP-A
 
 
 ## BotZap
-Essa aplicação é um BOT de mensagens automatizadas feito com python(Back end) e Tkinter(Interface Grafica) para escolher para quem você vai enviar, adicionar mensagens e imagens para sua mensagem automatizada
+Essa aplicação é uma calculadora de chrrasco, onde voce pode calcular precisamente o quanto voce vai gastar durante a quantidade horas de churrasco que voce selecionar
 
 ## Tecnologias
 
@@ -18,20 +18,33 @@ Aqui estão as tecnologias usadas nesse projeto
 
 ## Iniciando
 
-* Dependencias
-  - Selenium  
-  - Tkinter
-  - WebDriver
+## Tecnologias 
+- *React Native* "18.2.0"
+- *AWS - Amazon Web Services*
+- *Node* "16.13.2"
+- JavaScript 
+- Expo 
+- GitHub 
 
-* Para criar o projeto acesse o git e digite este comando abaixo.
-  - git clone https://github.com/jframnp/BotZap.git
-  
-* Para instalar as dependencias, digite no terminal os seguintes comandos.
-  - python3 -m pip install selenium
-  - python3 -m pip install webdriver
-  
-* Para rodar o projeto.
-  - python3 index.py
+- *Clone o repositório na sua pasta*
+- [Instalar o node](https://nodejs.org/en)
+- *No cmd insira o comando *
+```
+- npm install
+```
+- *Para executar o app na web ou mobile *
+```
+ - npm start
+```
+
+
+### *Se você deseja instalar o aplicativo móvel:*
+
+
+## Como usar 
+- Veja como funciona o nosso [App]()
+- *Para melhor visualização do nosso projeto acesse o github*  [Github](https://github.com/AnjosSant/Churrastche.git)
+- [Documentação](https://sesisenaispedu-my.sharepoint.com/:w:/g/personal/marcelo_anjos_portalsesisp_org_br/Eb4gWLfDf6JKh7WjEdFlHzEBPc1gJILqSqXjNFHIxpqRIQ)
 
 ## Como Usar o Bot
 
@@ -55,54 +68,20 @@ Aqui estão as tecnologias usadas nesse projeto
 
 
 ## Links
-  - Repositório: https://github.com/jframnp/BotZap.git
+  - Repositório: https://github.com/AnjosSant/Churrastche
     - Em caso de bugs, chamem pelo email do nosso teachlead vitorperrone2005@gmail.com
 
 
   ## Autores
 
-  * **Fabiola Girotti** 
-  * **Isabela Correia**
+  * **Rafael Brambila** 
+  * **Henrrique Rizzo**
   * **João Francisco**
+  * **Marcelo Anjos**
   * **Vitor Perrone**
 
 Obrigado por nos visitarem e Happy coding!
 
 
-OUTRO README
 
-# Descrição
-
-
-### O app churrasche funciona como uma calculadora de churrasco
-
-# __ Passos para a instalação __
-
-- *Clone o repositório na sua pasta*
-- [Instalar o node](https://nodejs.org/en)
-- *No cmd insira o comando *
-```
-- npm install
-```
-- *Para executar o app na web ou mobile *
-```
- - npm start
-```
-
-
-### *Se você deseja instalar o aplicativo móvel:*
-
-
-## Como usar 
-- Veja como funciona o nosso [App]()
-- *Para melhor visualização do nosso projeto acesse o github*  [Github](https://github.com/AnjosSant/Churrastche.git)
-- [Documentação](https://sesisenaispedu-my.sharepoint.com/:w:/g/personal/marcelo_anjos_portalsesisp_org_br/Eb4gWLfDf6JKh7WjEdFlHzEBPc1gJILqSqXjNFHIxpqRIQ)
-## Tecnologias 
-
-- *React Native* "18.2.0"
-- *AWS - Amazon Web Services*
-- *Node* "16.13.2"
-- JavaScript 
-- Expo 
-- GitHub 
 
