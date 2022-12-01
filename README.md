@@ -3,7 +3,7 @@ https://www.youtube.com/watch?v=52U9RemTP-A
 ![Logo of the project](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/logo.jpeg)
 
 
-## BotZap
+## Churrastche
 Essa aplicação é uma calculadora de chrrasco, onde voce pode calcular precisamente o quanto voce vai gastar durante a quantidade horas de churrasco que voce selecionar
 
 ## Tecnologias
