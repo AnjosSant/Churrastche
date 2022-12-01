@@ -1,7 +1,7 @@
 ![Logo of the project](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/logo.jpeg)
 
 
-## Churrastche
+## ChurrasTchê!
 Essa aplicação é uma calculadora de churrasco, onde você pode calcular aproximadamente o quanto você vai gastar durante a quantidade de horas de churrasco que você selecionar, quantas pessoas e produtos. 
 
 ## Iniciando
