@@ -16,7 +16,7 @@ Essa aplicação é uma calculadora de churrasco, onde você pode calcular aprox
 
 - *Clone o repositório na sua pasta*
 - git clone "https://github.com/AnjosSant/Churrastche.git"
-...
+
 - [Instalar o node](https://nodejs.org/en)
 - *No cmd insira o comando*
 ```
@@ -31,7 +31,7 @@ Essa aplicação é uma calculadora de churrasco, onde você pode calcular aprox
 
 ### 1 - Quando o projeto estiver sendo executado, você vai estar na tela home, onde você poderá selecionar alguns videos (na parte de receitas) para te auxiliar ou, iniciar a calculadora.
 
-![contato image](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/home.jpeg) ![contato image](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/home2.jpeg) ![contato image](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/home3.jpeg)
+![contato image](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/home3.jpeg) ![contato image](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/home2.jpeg) ![contato image](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/home3.jpeg)
 
 
 ### 2 - Após isso, você vai para a pagina de convidados, selecioná a quantidade de pessoas, quantas horas vai ser seu churrasco e o preço do lugar (caso voce alugue um).
