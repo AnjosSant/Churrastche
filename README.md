@@ -60,21 +60,21 @@ Aqui estão as tecnologias usadas nesse projeto
 
 ### 3 - Após isso, voce vai selecionar oque voce vai comer no seu churrasco.
 
-![Tela final](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/shop.jpeg)
-![Tela final](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/shop2.jpeg)
-![Tela final](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/shop3.jpeg)
+![Tela final](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/shop.jpeg)
+![Tela final](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/shop2.jpeg)
+![Tela final](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/shop3.jpeg)
 
 
 ### 4 - Adiante, voce sera redirecionado para a pagina do mapa, no qual voce pode inserir o cep do evento e buscar açougues proximos.
-![midia_image1](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/mapa.jpeg)
-![midia_image2](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/mapa2.jpeg)
+![midia_image1](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/mapa.jpeg)
+![midia_image2](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/mapa2.jpeg)
 
 
 ### 5 - Por fim,  voce sera redirecionado para a pagina da lista, onde voce vai ver o resultado final, que vai estar calculando tudo e te retornara o preço que voce vai gastar aproximadamente.
 
-![midia_image1](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/lista.jpeg)
-![midia_image2](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/lista2.jpeg)
-![midia_image2](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/lista3.jpeg)
+![midia_image1](https://github.com/AnjosSant/Churrastche/blob/src/img_readme/lista.jpeg)
+![midia_image2](https://github.com/AnjosSant/Churrastche/blob/src/img_readme/lista2.jpeg)
+![midia_image2](https://github.com/AnjosSant/Churrastche/blob/src/img_readme/lista3.jpeg)
 
 
 ## Links
