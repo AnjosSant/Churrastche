@@ -1,6 +1,6 @@
 https://www.youtube.com/watch?v=52U9RemTP-A
 
-![Logo of the project](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/logo.jpeg)
+![Logo of the project](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/logo.jpeg)
 
 
 ## BotZap
