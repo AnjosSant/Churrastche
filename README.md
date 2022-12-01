@@ -1,20 +1,8 @@
-https://www.youtube.com/watch?v=52U9RemTP-A
-
 ![Logo of the project](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/logo.jpeg)
 
 
 ## Churrastche
-Essa aplicação é uma calculadora de chrrasco, onde voce pode calcular precisamente o quanto voce vai gastar durante a quantidade horas de churrasco que voce selecionar
-
-## Tecnologias
-
-Aqui estão as tecnologias usadas nesse projeto
-
-* python 3.10.8
-
-## Serviços usados
-
-* Github
+Essa aplicação é uma calculadora de churrasco, onde você pode calcular aproximadamente o quanto você vai gastar durante a quantidade de horas de churrasco que você selecionar, quantas pessoas e produtos. 
 
 ## Iniciando
 
@@ -27,8 +15,10 @@ Aqui estão as tecnologias usadas nesse projeto
 - GitHub 
 
 - *Clone o repositório na sua pasta*
+- git clone "https://github.com/AnjosSant/Churrastche.git"
+...
 - [Instalar o node](https://nodejs.org/en)
-- *No cmd insira o comando *
+- *No cmd insira o comando*
 ```
 - npm install
 ```
@@ -37,40 +27,31 @@ Aqui estão as tecnologias usadas nesse projeto
  - npm start
 ```
 
-
-### *Se você deseja instalar o aplicativo móvel:*
-
-
-## Como usar 
-- Veja como funciona o nosso [App]()
-- *Para melhor visualização do nosso projeto acesse o github*  [Github](https://github.com/AnjosSant/Churrastche.git)
-- [Documentação](https://sesisenaispedu-my.sharepoint.com/:w:/g/personal/marcelo_anjos_portalsesisp_org_br/Eb4gWLfDf6JKh7WjEdFlHzEBPc1gJILqSqXjNFHIxpqRIQ)
-
  ## Como Usar o App
 
-### 1 - Quando o projeto estiver rodadndo, você vai estar na home, onde voce pode selecionbar alguns videos para te auxiliar ou, começar a fazer seu calculo.
+### 1 - Quando o projeto estiver sendo executado, você vai estar na tela home, onde você poderá selecionar alguns videos (na parte de receitas) para te auxiliar ou, iniciar a calculadora.
 
 ![contato image](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/home.jpeg) ![contato image](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/home2.jpeg) ![contato image](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/home3.jpeg)
 
 
-### 2 - Após isso, voce vai para a pagina de convidados, onde voce seleciona a quantidade de pessoas, quantas horas vai ser seu churrasco e o preço do lugar(caso voce alugue um).
+### 2 - Após isso, você vai para a pagina de convidados, selecioná a quantidade de pessoas, quantas horas vai ser seu churrasco e o preço do lugar (caso voce alugue um).
 
 ![Mensagens](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/convidados.jpeg)
 ![Mensagens](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/convidados2.jpeg)
 
-### 3 - Após isso, voce vai selecionar oque voce vai comer no seu churrasco.
+### 3 - Após isso, voce vai selecionar oque você vai comer no seu churrasco.
 
 ![Tela final](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/shop.jpeg)
 ![Tela final](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/shop2.jpeg)
 ![Tela final](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/shop3.jpeg)
 
 
-### 4 - Adiante, voce sera redirecionado para a pagina do mapa, no qual voce pode inserir o cep do evento e buscar açougues proximos.
+### 4 - Adiante, você será redirecionado para a pagina do mapa, podendo inserir o cep do evento e buscar açougues próximos.
 ![midia_image1](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/mapa.jpeg)
 ![midia_image2](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/mapa2.jpeg)
 
 
-### 5 - Por fim,  voce sera redirecionado para a pagina da lista, onde voce vai ver o resultado final, que vai estar calculando tudo e te retornara o preço que voce vai gastar aproximadamente.
+### 5 - Por fim,  voce será redirecionado para a pagina da lista, vendo o resultado final, que vai estar calculando tudo e te retornará o preço que voce vai gastar aproximadamente.
 
 ![midia_image1](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/lista.jpeg)
 ![midia_image2](https://github.com/AnjosSant/Churrastche/blob/main/src/img_readme/lista2.jpeg)
@@ -91,7 +72,3 @@ Aqui estão as tecnologias usadas nesse projeto
   * **Vitor Perrone**
 
 Obrigado por nos visitarem e Happy coding!
-
-
-
-
