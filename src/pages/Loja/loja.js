@@ -33,7 +33,6 @@ export default function Home() {
   const [isGuarana, setisGuarana] = useState(false);
   const [isCoca_cola, setisCoca_cola] = useState(false);
   const [isSuco, setisSuco] = useState(false);
-  const [isDescartveis, setisDescartveis] = useState(false);
 
   const picanha_Angus = () => {
     setisPicanhaA((previousState) => !previousState);
@@ -91,9 +90,6 @@ const asa = () => {
   };
   const suco = () => {
     setisSuco((previousState) => !previousState);
-  };
-  const descartavel = () => {
-    setisDescartveis((previousState) => !previousState);
   };
   const dataCortes = [
     {
@@ -209,12 +205,6 @@ const asa = () => {
       nome: 'Suco',
       preco: 4.8,
       Estado: isSuco,
-    },
-    {
-      tipo: 'descartavel',
-      nome: 'Descartavel ',
-      preco: 35,
-      Estado: isDescartveis,
     },
   ];
 
@@ -437,20 +427,6 @@ const asa = () => {
             value={isSuco}
           />
         </View>
-         <View style={style.container}>
-          <Text> Outros </Text>
-        </View>
-
-        <View style={style.textHeader1}>
-          <Text>Descartáveis- R$ 35,00 </Text>
-          <Switch
-            trackColor={{ false: 'd3d3d3', true: '#ea1d2c' }}
-            thumbColor={!isDescartveis ? '#fff' : '#ea1d2c'}
-            onValueChange={descartavel}
-            value={isDescartveis}
-          />
-        </View>
-
         <TouchableOpacity
           style={style.buttonNext}
           onPress={() => {

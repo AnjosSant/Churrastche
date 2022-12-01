@@ -20,8 +20,7 @@ export default function Provider({ children }) {
       setListarShop(shop);
     })();
   }, []);
-  console.log(listarShop);
-  console.log(listarConvidados);
+
 
   const CalculoGeral = (listarConvidados, listarShop) => {
     // filtro da quantidade de pessoas
@@ -54,7 +53,6 @@ export default function Provider({ children }) {
     let complementos = listarShop.filter((item) => item.tipo == "complementos");
     let vegetariano = listarShop.filter((item) => item.tipo == "vegetariano");
 
-    console.log(frango)
 
 
 
@@ -70,7 +68,6 @@ export default function Provider({ children }) {
     );
     let tipoBebidaAlcoolica = bebidas_alcoolicas.map((item) => item.preco);
 
-    console.log(frango);
 
     let descartavel = listarShop.filter((item) => item.tipo == "descartavel");
 
@@ -79,9 +76,6 @@ export default function Provider({ children }) {
     
     let JackDaniels = listarShop.filter((item) => item.nome == "Jack Daniels");
 
-    // console.log()
-
-    console.log(Bebida);
 
     var tiposB = bovino;
     var tiposF = frango;
@@ -89,7 +83,6 @@ export default function Provider({ children }) {
     var tipoAlcoolica = bebidas_alcoolicas;
     var tipoNaoAlcoolica = bebidas_nao_alcoolicas;
 
-    console.log(quantidadeHomem);
 
     // CALCULO HOMEM
 
@@ -172,7 +165,7 @@ export default function Provider({ children }) {
     //     carvao == 0;
     // }
 
-    // console.log(carvao)
+
 
     //VALIDACAO?
 
@@ -204,7 +197,7 @@ export default function Provider({ children }) {
       bebidas_alcoolicas = 1;
     }
 
-    console.log(litrosAdultoRefri);
+
 
 
 
@@ -216,10 +209,6 @@ export default function Provider({ children }) {
     // let garrafaJack = Math.ceil(quantidadeTotalAdulto / 8);
     // let litrosJack = (garrafaJack * 1000) / 1000;
 
-    // console.log(quantidadeLatasAlcoolicas);
-    // console.log(litrosLata);
-    // console.log(garrafaJack);
-    // console.log(litrosJack);
 
     //SOMA TOTAL BEBIDAS
     var quantidadeBebidasAdulto =
@@ -227,7 +216,7 @@ export default function Provider({ children }) {
     var quantidadeBebidasCrianca =
       ((litrosCriancaRefri + litrosCriancaSuco + litrosCriancaAgua) /1000 )/bebidas_nao_alcoolicas.length;
 
-      console.log(quantidadeBebidasAdulto)
+
 
     let qtdLitroAlcoolica = (litrosAdultoAlcoolica )/ 1000;
     let qtdLitroNaoAlcoolica = (quantidadeBebidasAdulto + quantidadeBebidasCrianca) /1000
@@ -240,8 +229,7 @@ export default function Provider({ children }) {
         bebidas_nao_alcoolicas.length
     );
 
-    console.log(qtdLata);
-    console.log(qtdLataRefri);
+
 
     //SOMA TOTAL DAS CARNES
     var quantidadeCarne =
@@ -253,14 +241,12 @@ export default function Provider({ children }) {
 
     var quantidadeTotalCortes =
       quantidadeCarne + quantidadeSuino + quantidadeFrango;
-    console.log(bovino);
     //CONTA CARVAO
 
     let kgCarvao = quantidadeTotalCortes.toFixed(2);
     let sacoCarvao = Math.ceil(kgCarvao / 3);
     let precoCarvao = sacoCarvao * 20.25;
-    console.log(kgCarvao);
-    console.log(sacoCarvao);
+
 
     let sal = quantidadeTotalCortes * 0.02;
     let sacoSal = Math.ceil(sal * 4.5);
@@ -272,9 +258,7 @@ export default function Provider({ children }) {
     let farofa = totalPessoas * 70;
     let sacoFarofa = Math.ceil(farofa / 0.5);
 
-    console.log(precoSal);
 
-    console.log(sacoCarvao);
 
     // PRECO CARNE BOVINA
     var precoTotalCarne = 0;
@@ -318,7 +302,7 @@ export default function Provider({ children }) {
       Object.assign(tipoAlcoolica[i], {
         latas: (Math.ceil(qtdLitroAlcoolica / bebidas_alcoolicas)),
       });
-      console.log(tipoBebidaAlcoolica[i]);
+
     }
     for (let i = 0; i < tipoBebidaNaoAlcoolica.length; i++) {
       let resultado =
@@ -330,9 +314,8 @@ export default function Provider({ children }) {
       Object.assign(tipoNaoAlcoolica[i], {
         latas: Math.ceil((quantidadeBebidasCrianca + quantidadeBebidasAdulto)/ bebidas_nao_alcoolicas.length),
       });
-      console.log((Math.ceil((quantidadeBebidasCrianca + quantidadeBebidasAdulto)/ bebidas_nao_alcoolicas.length) / tipoBebidaNaoAlcoolica[i]).toFixed(2));
     }
-    console.log(quantidadeCarne);
+
 
     var dataShop = [
       {
@@ -395,8 +378,6 @@ export default function Provider({ children }) {
         },
       },
     ];
-    console.log(Bebida);
-    console.log(sacoCarvao);
     return [dataShop, items];
   };
 

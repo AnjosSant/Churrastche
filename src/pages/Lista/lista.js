@@ -19,12 +19,9 @@ export default function Geral() {
       let convidados = await AsyncStorage.getItem("Convidados");
       let shop = await AsyncStorage.getItem("dataCortes");
       //CONVERTENDO DADOS PARA JSON
-      console.log(shop);
       if (convidados !== null) {
         convidados = JSON.parse(convidados);
         shop = JSON.parse(shop);
-
-        console.log(shop);
         setDados(CalculoGeral(convidados, shop));
         setListarConvidados(convidados);
         setListarShop(shop);
@@ -39,8 +36,7 @@ export default function Geral() {
   if (!fontsLoaded) {
     return null;
   }
-  console.log(listarShop);
-  console.log(listarConvidados);
+
 
 
   
@@ -51,8 +47,7 @@ export default function Geral() {
 
     var qtdLocacao = listarConvidados.filter((item) => item.localevento == "Preço local")
     var precoLocacao = qtdLocacao.map((item) => item.quantidade)
-    console.log(qtdLocacao);
-    console.log(precoLocacao);
+
 
 
 
@@ -74,7 +69,6 @@ export default function Geral() {
 
     var carvaoItems = essenciais.filter((item) => item.nome == "Carvão");
     var qtdCarvao = carvaoItems.map((item) => item.nome);
-    console.log(sal);
 
 
 
@@ -91,7 +85,6 @@ export default function Geral() {
       Number(kgF.qtdTotal) +
       Number(kgS.qtdTotal)
     ).toFixed(2);
-    console.log(kilosTotal)
 
     var somaTotalBovino = carneB.map((item) => item.total);
     var somaB = 0;
@@ -100,7 +93,6 @@ export default function Geral() {
     }
   
     var somaTotalFrango = carneF.map((item) => item.total);
-    console.log(somaTotalFrango);
     var somaF = 0;
     for (let i = 0; i < somaTotalFrango.length; i++) {
       somaF += Number(somaTotalFrango[i]);
@@ -123,7 +115,6 @@ export default function Geral() {
     var somaNalcoolica = 0;
     for (let i = 0; i < somaNBalcoolica.length; i++) {
       somaNalcoolica += Number(somaNBalcoolica[i]);
-      console.log(somaNBalcoolica[i])
     }
 
     var somaConvidados = listarConvidados.map((item) => item.quantidade) 
@@ -142,22 +133,17 @@ export default function Geral() {
       somaB + somaF + somaS + Number(somaFosforo) + Number(precoCarvaos) + somaAlcoolica + somaNalcoolica + Number(precoSal) + Number(precoLocacao);
 
     var rateio = Math.ceil(totalItems / somaRateio);
-    console.log(somaRateio)
     var despesasCarne = somaB + somaF + somaS
     var despesasBebida = somaAlcoolica + somaNalcoolica;
   }
 
   // var quantidadeTotalCortes =
   //   quantidadeCarne + quantidadeSuino + quantidadeFrango;
-  // console.log(quantidadeCarne);
-  //CONTA CARVAO
+ //CONTA CARVAO
 
   // let kgCarvao = quantidadeTotalCortes.toFixed(2);
   // let sacoCarvao = Math.ceil(kgCarvao / 3);
   // let precoCarvao = sacoCarvao * 20;
-  // console.log(kgCarvao);
-  // console.log(sacoCarvao);
-
   //BUSCAR BEBIDAS
   //BEBIDAS ALCOOLICAS
 
@@ -167,7 +153,6 @@ export default function Geral() {
 
 
 
-  // console.log(listarShop.filter((item) => item.tipo == "bovino"))
 
   return (
     <ScrollView>
