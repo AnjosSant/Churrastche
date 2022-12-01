@@ -1,6 +1,6 @@
 https://www.youtube.com/watch?v=52U9RemTP-A
 
-![Logo of the project](https://github.com/jframnp/BotZap/blob/main/img/Logo.jpeg)
+![Logo of the project](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/logo.jpeg)
 
 
 ## BotZap
@@ -46,25 +46,35 @@ Aqui estão as tecnologias usadas nesse projeto
 - *Para melhor visualização do nosso projeto acesse o github*  [Github](https://github.com/AnjosSant/Churrastche.git)
 - [Documentação](https://sesisenaispedu-my.sharepoint.com/:w:/g/personal/marcelo_anjos_portalsesisp_org_br/Eb4gWLfDf6JKh7WjEdFlHzEBPc1gJILqSqXjNFHIxpqRIQ)
 
-## Como Usar o Bot
+ ## Como Usar o App
 
-### 1 - Quando o projeto estiver rodadndo, você vai digitar um ou mais contatos salvos no seu celular.
+### 1 - Quando o projeto estiver rodadndo, você vai estar na home, onde voce pode selecionbar alguns videos para te auxiliar ou, começar a fazer seu calculo.
 
-![contato image](https://github.com/jframnp/BotZap/blob/main/img/readme_fotos/contato.jpeg)
+![contato image](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/home.jpeg) ![contato image](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/home2.jpeg) ![contato image](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/home3.jpeg)
 
-### 2 - Após isso, voce vai digitar uma ou mais mensagens para os contatos que você digitou.
 
-![Mensagens](https://github.com/jframnp/BotZap/blob/main/img/readme_fotos/mensagem.jpeg)
+### 2 - Após isso, voce vai para a pagina de convidados, onde voce seleciona a quantidade de pessoas, quantas horas vai ser seu churrasco e o preço do lugar(caso voce alugue um).
 
-### 3 - Você pode selecionar um arquivo de mídia na sua mensagem tambem!
+![Mensagens](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/convidados.jpeg)
+![Mensagens](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/convidados2.jpeg)
 
-![midia_image1](https://github.com/jframnp/BotZap/blob/main/img/readme_fotos/midias.jpeg)
-![midia_image2](https://github.com/jframnp/BotZap/blob/main/img/readme_fotos/selecionar_midia.jpeg)
+### 3 - Após isso, voce vai selecionar oque voce vai comer no seu churrasco.
 
-### 5 - Por fim, envie sua mensagem.
+![Tela final](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/shop.jpeg)
+![Tela final](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/shop2.jpeg)
+![Tela final](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/shop3.jpeg)
 
-![Tela final](https://github.com/jframnp/BotZap/blob/main/img/readme_fotos/envie-sua-mensagem.jpeg)
 
+### 4 - Adiante, voce sera redirecionado para a pagina do mapa, no qual voce pode inserir o cep do evento e buscar açougues proximos.
+![midia_image1](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/mapa.jpeg)
+![midia_image2](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/mapa2.jpeg)
+
+
+### 5 - Por fim,  voce sera redirecionado para a pagina da lista, onde voce vai ver o resultado final, que vai estar calculando tudo e te retornara o preço que voce vai gastar aproximadamente.
+
+![midia_image1](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/lista.jpeg)
+![midia_image2](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/lista2.jpeg)
+![midia_image2](https://github.com/AnjosSant/Churrastche/tree/main/src/img_readme/lista3.jpeg)
 
 
 ## Links
