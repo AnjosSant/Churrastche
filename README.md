@@ -4,8 +4,6 @@
 ## ChurrasTchê!
 Essa aplicação é uma calculadora de churrasco, onde você pode calcular aproximadamente o quanto você vai gastar durante a quantidade de horas de churrasco que você selecionar, quantas pessoas e produtos. 
 
-## Iniciando
-
 ## Tecnologias 
 - *React Native* "18.2.0"
 - *AWS - Amazon Web Services*
@@ -13,6 +11,8 @@ Essa aplicação é uma calculadora de churrasco, onde você pode calcular aprox
 - JavaScript 
 - Expo 
 - GitHub 
+
+## Iniciando
 
 - *Clone o repositório na sua pasta*
 - git clone "https://github.com/AnjosSant/Churrastche.git"
@@ -22,7 +22,7 @@ Essa aplicação é uma calculadora de churrasco, onde você pode calcular aprox
 ```
 - npm install
 ```
-- *Para executar o app na web ou mobile *
+- *Para executar o app na web ou mobile*
 ```
  - npm start
 ```
